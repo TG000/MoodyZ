@@ -66,7 +66,6 @@ public class MoodyZApplication extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1366, 768));
         setSize(new java.awt.Dimension(1366, 768));
 
         border.setBackground(new java.awt.Color(25, 25, 25));
@@ -88,7 +87,6 @@ public class MoodyZApplication extends javax.swing.JFrame {
             }
         });
 
-        btnMinimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/minimize_white.png"))); // NOI18N
         btnMinimize.setBorder(null);
         btnMinimize.setContentAreaFilled(false);
         btnMinimize.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +95,6 @@ public class MoodyZApplication extends javax.swing.JFrame {
             }
         });
 
-        btnMaximize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/maximize_white.png"))); // NOI18N
         btnMaximize.setBorder(null);
         btnMaximize.setContentAreaFilled(false);
         btnMaximize.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +103,6 @@ public class MoodyZApplication extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/close_white.png"))); // NOI18N
         btnClose.setBorder(null);
         btnClose.setContentAreaFilled(false);
         btnClose.addActionListener(new java.awt.event.ActionListener() {

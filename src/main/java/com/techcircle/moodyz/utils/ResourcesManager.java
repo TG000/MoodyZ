@@ -13,7 +13,6 @@ public class ResourcesManager {
     }
 
     public URL loadImageURL(String fileName) {
-        System.out.println(root.getClass().getResource("/images/"));
         return root.getClass().getResource("/images/" + fileName);
     }
 }

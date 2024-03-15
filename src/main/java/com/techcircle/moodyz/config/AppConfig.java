@@ -20,7 +20,9 @@ public class AppConfig {
     }
 
     public void init() {
+        
         mainApp.setIconImage(new ImageIcon(resourcesManager.loadImageURL(AssetConstants.logoIcon)).getImage());
+        
         ComponentResizer componentResizer = new ComponentResizer();
         componentResizer.registerComponent(mainApp);
         componentResizer.setMinimumSize(new Dimension(1600, 900));
