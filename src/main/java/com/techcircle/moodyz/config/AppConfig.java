@@ -20,12 +20,10 @@ public class AppConfig {
     }
 
     public void init() {
-        
         mainApp.setIconImage(new ImageIcon(resourcesManager.loadImageURL(AssetConstants.logoIcon)).getImage());
-        
         ComponentResizer componentResizer = new ComponentResizer();
         componentResizer.registerComponent(mainApp);
-        componentResizer.setMinimumSize(new Dimension(1600, 900));
+        componentResizer.setMinimumSize(new Dimension(1366, 768));
         componentResizer.setMaximumSize(Toolkit.getDefaultToolkit().getScreenSize());
         componentResizer.setSnapSize(new Dimension(1, 1));
     }
