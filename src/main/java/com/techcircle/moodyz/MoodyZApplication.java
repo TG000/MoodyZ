@@ -1,8 +1,9 @@
 package com.techcircle.moodyz;
 
+import com.techcircle.moodyz.component.layouts.MainLayout;
 import com.techcircle.moodyz.config.AppConfig;
 import com.techcircle.moodyz.utils.IconBuilder;
-import com.techcircle.moodyz.utils.AnimationManager;
+import com.techcircle.moodyz.utils.Animation;
 import org.jdesktop.core.animation.timing.Animator;
 import org.jdesktop.core.animation.timing.TimingSource;
 import org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource;
@@ -19,7 +20,7 @@ import java.awt.*;
 public class MoodyZApplication extends javax.swing.JFrame {
     private AppConfig appConfig;
     private TimingSource timingSource;
-    private AnimationManager animationManager;
+    private Animation animation;
     private Rectangle normalBounds;
 
     private boolean maximize;
@@ -34,7 +35,7 @@ public class MoodyZApplication extends javax.swing.JFrame {
     private void init() {
         appConfig = new AppConfig(this);
         timingSource = new SwingTimerTimingSource();
-        animationManager = new AnimationManager(timingSource);
+        animation = new Animation(timingSource);
 
         appConfig.init();
         Animator.setDefaultTimingSource(timingSource);
@@ -43,9 +44,9 @@ public class MoodyZApplication extends javax.swing.JFrame {
     }
 
     private void initIcon() {
-        btnMinimize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MINIMIZE, btnMinimize.getHeight(), Color.WHITE));
-        btnMaximize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MAXIMIZE, btnMaximize.getHeight(), Color.WHITE));
-        btnClose.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.TIMES, btnClose.getHeight(), Color.WHITE));
+        btnMinimize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MINIMIZE, btnMinimize.getHeight() / 4, Color.WHITE));
+        btnMaximize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MAXIMIZE, btnMaximize.getHeight() / 3, Color.WHITE));
+        btnClose.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.TIMES, btnClose.getHeight() / 3, Color.WHITE));
     }
 
     /**
@@ -63,18 +64,20 @@ public class MoodyZApplication extends javax.swing.JFrame {
         btnMaximize = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
         body = new javax.swing.JLayeredPane();
+        mainLayout = new com.techcircle.moodyz.component.layouts.MainLayout();
+        inPlayingSong = new com.techcircle.moodyz.component.InPlayingSong();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setSize(new java.awt.Dimension(1366, 768));
 
-        border.setBackground(new java.awt.Color(25, 25, 25));
+        border.setBackground(new java.awt.Color(30, 30, 30));
         border.setPreferredSize(new java.awt.Dimension(1366, 768));
 
-        background.setBackground(new java.awt.Color(30, 30, 30));
+        background.setBackground(new java.awt.Color(0, 0, 0));
         background.setPreferredSize(new java.awt.Dimension(1366, 768));
 
-        titleBar.setBackground(new java.awt.Color(25, 25, 25));
+        titleBar.setBackground(new java.awt.Color(0, 0, 0));
         titleBar.setPreferredSize(new java.awt.Dimension(1366, 30));
         titleBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -89,6 +92,14 @@ public class MoodyZApplication extends javax.swing.JFrame {
 
         btnMinimize.setBorder(null);
         btnMinimize.setContentAreaFilled(false);
+        btnMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinimizeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinimizeMouseExited(evt);
+            }
+        });
         btnMinimize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMinimizeActionPerformed(evt);
@@ -97,6 +108,14 @@ public class MoodyZApplication extends javax.swing.JFrame {
 
         btnMaximize.setBorder(null);
         btnMaximize.setContentAreaFilled(false);
+        btnMaximize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMaximizeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMaximizeMouseExited(evt);
+            }
+        });
         btnMaximize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMaximizeActionPerformed(evt);
@@ -105,6 +124,14 @@ public class MoodyZApplication extends javax.swing.JFrame {
 
         btnClose.setBorder(null);
         btnClose.setContentAreaFilled(false);
+        btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCloseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCloseMouseExited(evt);
+            }
+        });
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCloseActionPerformed(evt);
@@ -116,7 +143,7 @@ public class MoodyZApplication extends javax.swing.JFrame {
         titleBarLayout.setHorizontalGroup(
             titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleBarLayout.createSequentialGroup()
-                .addContainerGap(1186, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnMaximize, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,27 +153,30 @@ public class MoodyZApplication extends javax.swing.JFrame {
         );
         titleBarLayout.setVerticalGroup(
             titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnMaximize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(btnMinimize, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(btnMaximize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnClose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         body.setLayout(new java.awt.BorderLayout());
+        body.add(mainLayout, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(titleBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(body)
+            .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(inPlayingSong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(body))
+                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(inPlayingSong, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout borderLayout = new javax.swing.GroupLayout(border);
@@ -184,7 +214,7 @@ public class MoodyZApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMaximizeActionPerformed
 
     private void btnMinimizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinimizeActionPerformed
-        minimize(this);
+        minimize();
     }//GEN-LAST:event_btnMinimizeActionPerformed
 
     private void titleBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMouseDragged
@@ -196,8 +226,32 @@ public class MoodyZApplication extends javax.swing.JFrame {
         pY = evt.getY();
     }//GEN-LAST:event_titleBarMousePressed
 
+    private void btnCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseEntered
+        animation.setHoverColor(btnClose, Color.RED);
+    }//GEN-LAST:event_btnCloseMouseEntered
+
+    private void btnCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseExited
+        animation.removeHoverColor(btnClose);
+    }//GEN-LAST:event_btnCloseMouseExited
+
+    private void btnMaximizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaximizeMouseEntered
+        animation.setHoverColor(btnMaximize, Color.DARK_GRAY);
+    }//GEN-LAST:event_btnMaximizeMouseEntered
+
+    private void btnMaximizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaximizeMouseExited
+        animation.removeHoverColor(btnMaximize);
+    }//GEN-LAST:event_btnMaximizeMouseExited
+
+    private void btnMinimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMouseEntered
+        animation.setHoverColor(btnMinimize, Color.DARK_GRAY);
+    }//GEN-LAST:event_btnMinimizeMouseEntered
+
+    private void btnMinimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMouseExited
+        animation.removeHoverColor(btnMinimize);
+    }//GEN-LAST:event_btnMinimizeMouseExited
+
     private void close() {
-        animationManager.fadeOut(this, AnimationManager.ActionType.EXIT);
+        animation.fadeOut(this, () -> System.exit(0));
     }
 
     private void toggleMaximize() {
@@ -214,8 +268,8 @@ public class MoodyZApplication extends javax.swing.JFrame {
         }
     }
 
-    private void minimize(MoodyZApplication mainApp) {
-        animationManager.fadeOut(this, AnimationManager.ActionType.MINIMIZE);
+    private void minimize() {
+        animation.fadeOut(this, () -> setState(JFrame.ICONIFIED));
     }
 
     /**
@@ -254,6 +308,8 @@ public class MoodyZApplication extends javax.swing.JFrame {
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnMaximize;
     private javax.swing.JButton btnMinimize;
+    private com.techcircle.moodyz.component.InPlayingSong inPlayingSong;
+    private com.techcircle.moodyz.component.layouts.MainLayout mainLayout;
     private javax.swing.JPanel titleBar;
     // End of variables declaration//GEN-END:variables
 }

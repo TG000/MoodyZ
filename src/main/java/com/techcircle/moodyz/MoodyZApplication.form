@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="undecorated" type="boolean" value="true"/>
@@ -40,7 +40,7 @@
     <Container class="javax.swing.JPanel" name="border">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="19" green="19" red="19" type="rgb"/>
+          <Color blue="1e" green="1e" red="1e" type="rgb"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1366, 768]"/>
@@ -63,7 +63,7 @@
         <Container class="javax.swing.JPanel" name="background">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="1e" green="1e" red="1e" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[1366, 768]"/>
@@ -74,15 +74,18 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="titleBar" max="32767" attributes="0"/>
-                  <Component id="body" alignment="0" max="32767" attributes="0"/>
+                  <Component id="body" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="inPlayingSong" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="titleBar" min="-2" max="-2" attributes="0"/>
+                      <Component id="titleBar" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="body" max="32767" attributes="0"/>
+                      <Component id="body" pref="648" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="inPlayingSong" min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -91,7 +94,7 @@
             <Container class="javax.swing.JPanel" name="titleBar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="19" green="19" red="19" type="rgb"/>
+                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[1366, 30]"/>
@@ -106,7 +109,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="1186" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnMinimize" min="-2" pref="60" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="btnMaximize" min="-2" pref="60" max="-2" attributes="0"/>
@@ -118,11 +121,9 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnClose" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnMaximize" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnMinimize" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="btnMinimize" pref="40" max="32767" attributes="0"/>
+                      <Component id="btnMaximize" max="32767" attributes="0"/>
+                      <Component id="btnClose" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -135,6 +136,8 @@
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMinimizeMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMinimizeMouseExited"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMinimizeActionPerformed"/>
                   </Events>
                 </Component>
@@ -146,6 +149,8 @@
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMaximizeMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMaximizeMouseExited"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMaximizeActionPerformed"/>
                   </Events>
                 </Component>
@@ -157,6 +162,8 @@
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCloseMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCloseMouseExited"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCloseActionPerformed"/>
                   </Events>
                 </Component>
@@ -165,7 +172,18 @@
             <Container class="javax.swing.JLayeredPane" name="body">
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+              <SubComponents>
+                <Component class="com.techcircle.moodyz.component.layouts.MainLayout" name="mainLayout">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="Center"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+              </SubComponents>
             </Container>
+            <Component class="com.techcircle.moodyz.component.InPlayingSong" name="inPlayingSong">
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

@@ -1,25 +1,28 @@
-package com.techcircle.moodyz.form;
+package com.techcircle.moodyz.component.layouts;
 
-import com.techcircle.moodyz.utils.GUIStyler;
+import com.techcircle.moodyz.form.Home;
+import com.techcircle.moodyz.form.SongDetails;
+import net.miginfocom.swing.MigLayout;
 
 /**
  *
  * @author Gica Tran
  */
-public class Home extends javax.swing.JPanel {
-    private GUIStyler guiStyler;
+public class MainLayout extends javax.swing.JLayeredPane {
 
     /**
-     * Creates new form Home
+     * Creates new form Layout
      */
-    public Home() {
+    public MainLayout() {
         initComponents();
         init();
     }
 
     private void init() {
-        guiStyler = new GUIStyler();
-        guiStyler.makeRounded(this, 150);
+        setLayout(new MigLayout("filly", "8[350]8[grow]8[350]8", "0[]0"));
+        this.add(new SideBar(), "grow");
+        this.add(new Home(), "grow");
+        this.add(new SongDetails(), "grow");
     }
 
     /**
@@ -30,33 +33,19 @@ public class Home extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(25, 25, 25));
-
-        jLabel1.setForeground(new java.awt.Color(253, 253, 253));
-        jLabel1.setText("Home");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(jLabel1)
-                .addContainerGap(198, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(146, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(138, 138, 138))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

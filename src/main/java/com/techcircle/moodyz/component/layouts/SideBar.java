@@ -1,27 +1,27 @@
-package com.techcircle.moodyz.form;
+package com.techcircle.moodyz.component.layouts;
 
-import com.techcircle.moodyz.component.SideBar;
+import com.techcircle.moodyz.component.sidebar.BottomNav;
+import com.techcircle.moodyz.component.sidebar.TopNav;
 import net.miginfocom.swing.MigLayout;
 
 /**
  *
  * @author Gica Tran
  */
-public class Layout extends javax.swing.JLayeredPane {
+public class SideBar extends javax.swing.JLayeredPane {
 
     /**
-     * Creates new form Layout
+     * Creates new form SideBar
      */
-    public Layout() {
+    public SideBar() {
         initComponents();
         init();
     }
 
     private void init() {
-        setLayout(new MigLayout("fillx, filly", "0[]5[]5[]0", ""));
-        this.add(new SideBar());
-        this.add(new Home());
-        this.add(new SongDetails());
+        this.setLayout(new MigLayout("wrap", "0[]0", "0[50]8[grow]0"));
+        this.add(new TopNav(), "shrink");
+        this.add(new BottomNav(), "grow");
     }
 
     /**

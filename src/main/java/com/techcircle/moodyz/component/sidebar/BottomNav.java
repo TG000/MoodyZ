@@ -1,25 +1,16 @@
-package com.techcircle.moodyz.form;
-
-import com.techcircle.moodyz.utils.GUIStyler;
+package com.techcircle.moodyz.component.sidebar;
 
 /**
  *
  * @author Gica Tran
  */
-public class Home extends javax.swing.JPanel {
-    private GUIStyler guiStyler;
+public class BottomNav extends javax.swing.JPanel {
 
     /**
-     * Creates new form Home
+     * Creates new form BottomNav
      */
-    public Home() {
+    public BottomNav() {
         initComponents();
-        init();
-    }
-
-    private void init() {
-        guiStyler = new GUIStyler();
-        guiStyler.makeRounded(this, 150);
     }
 
     /**
@@ -35,23 +26,23 @@ public class Home extends javax.swing.JPanel {
         setBackground(new java.awt.Color(25, 25, 25));
 
         jLabel1.setForeground(new java.awt.Color(253, 253, 253));
-        jLabel1.setText("Home");
+        jLabel1.setText("Bottom Nav");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
+                .addGap(177, 177, 177)
                 .addComponent(jLabel1)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(146, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(141, 141, 141)
                 .addComponent(jLabel1)
-                .addGap(138, 138, 138))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

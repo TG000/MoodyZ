@@ -3,7 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="19" green="19" red="19" type="rgb"/>
+      <Color blue="0" green="0" red="0" type="rgb"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -21,19 +21,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="171" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
+              <EmptySpace pref="144" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="148" max="32767" attributes="0"/>
+              <EmptySpace pref="145" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -44,7 +44,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fd" green="fd" red="fd" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Song Details"/>
+        <Property name="text" type="java.lang.String" value="In Playing Song"/>
       </Properties>
     </Component>
   </SubComponents>
