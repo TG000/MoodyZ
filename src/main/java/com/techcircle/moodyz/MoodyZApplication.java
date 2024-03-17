@@ -241,27 +241,27 @@ public class MoodyZApplication extends javax.swing.JFrame {
     }//GEN-LAST:event_titleBarMousePressed
 
     private void btnCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseEntered
-        guiStyler.setHoverColor(btnClose, Color.RED);
+        guiStyler.setHoverBgColor(btnClose, Color.RED);
     }//GEN-LAST:event_btnCloseMouseEntered
 
     private void btnCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseExited
-        guiStyler.removeHoverColor(btnClose);
+        guiStyler.removeHoverBgColor(btnClose);
     }//GEN-LAST:event_btnCloseMouseExited
 
     private void btnMaximizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaximizeMouseEntered
-        guiStyler.setHoverColor(btnMaximize, Color.DARK_GRAY);
+        guiStyler.setHoverBgColor(btnMaximize, Color.DARK_GRAY);
     }//GEN-LAST:event_btnMaximizeMouseEntered
 
     private void btnMaximizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaximizeMouseExited
-        guiStyler.removeHoverColor(btnMaximize);
+        guiStyler.removeHoverBgColor(btnMaximize);
     }//GEN-LAST:event_btnMaximizeMouseExited
 
     private void btnMinimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMouseEntered
-        guiStyler.setHoverColor(btnMinimize, Color.DARK_GRAY);
+        guiStyler.setHoverBgColor(btnMinimize, Color.DARK_GRAY);
     }//GEN-LAST:event_btnMinimizeMouseEntered
 
     private void btnMinimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMouseExited
-        guiStyler.removeHoverColor(btnMinimize);
+        guiStyler.removeHoverBgColor(btnMinimize);
     }//GEN-LAST:event_btnMinimizeMouseExited
 
     private void btnMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoreActionPerformed

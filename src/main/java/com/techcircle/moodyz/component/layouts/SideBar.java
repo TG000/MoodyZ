@@ -19,8 +19,8 @@ public class SideBar extends javax.swing.JLayeredPane {
     }
 
     private void init() {
-        this.setLayout(new MigLayout("wrap", "0[]0", "0[50]8[grow]0"));
-        this.add(new TopNav(), "shrink");
+        this.setLayout(new MigLayout("wrap", "0[]0", "0[100]8[grow]0"));
+        this.add(new TopNav());
         this.add(new BottomNav(), "grow");
     }
 
