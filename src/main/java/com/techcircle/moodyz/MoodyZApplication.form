@@ -74,7 +74,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="titleBar" max="32767" attributes="0"/>
-                  <Component id="body" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="body" alignment="0" pref="1366" max="32767" attributes="0"/>
                   <Component id="inPlayingSong" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
@@ -109,13 +109,14 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnMore" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnMinimize" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="btnMinimize" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="btnMaximize" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="btnMaximize" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="btnClose" min="-2" pref="60" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="btnClose" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -123,6 +124,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnMinimize" pref="40" max="32767" attributes="0"/>
                       <Component id="btnMaximize" max="32767" attributes="0"/>
+                      <Component id="btnMore" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnClose" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
@@ -165,6 +167,17 @@
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCloseMouseEntered"/>
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCloseMouseExited"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCloseActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnMore">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMoreActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

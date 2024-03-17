@@ -1,15 +1,18 @@
 package com.techcircle.moodyz.component.sidebar;
 
+import com.techcircle.moodyz.component.global.RoundedPanel;
+
 /**
  *
  * @author Gica Tran
  */
-public class TopNav extends javax.swing.JPanel {
+public class TopNav extends RoundedPanel {
 
     /**
      * Creates new form TopNav
      */
     public TopNav() {
+        super(20);
         initComponents();
     }
 

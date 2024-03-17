@@ -2,7 +2,6 @@ package com.techcircle.moodyz.utils;
 
 import com.techcircle.moodyz.MoodyZApplication;
 
-import javax.swing.*;
 import java.net.URL;
 
 public class ResourcesManager {

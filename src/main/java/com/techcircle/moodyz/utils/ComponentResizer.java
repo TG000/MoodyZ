@@ -12,7 +12,7 @@ public class ComponentResizer extends MouseAdapter {
 	private final static Dimension MAXIMUM_SIZE =
 		new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
 
-	private static Map<Integer, Integer> cursors = new HashMap<Integer, Integer>();
+	private static final Map<Integer, Integer> cursors = new HashMap<Integer, Integer>();
 	{
 		cursors.put(1, Cursor.N_RESIZE_CURSOR);
 		cursors.put(2, Cursor.W_RESIZE_CURSOR);
@@ -37,15 +37,17 @@ public class ComponentResizer extends MouseAdapter {
 	private boolean resizing;
 	private Rectangle bounds;
 	private Point pressed;
-	private boolean autoscrolls;
+	private boolean autoscroll;
 	private boolean autoLayout;
 
 	private Dimension minimumSize = MINIMUM_SIZE;
 	private Dimension maximumSize = MAXIMUM_SIZE;
 
 	/**
-	 *  Convenience contructor. All borders are resizable in increments of
-	 *  a single pixel. Components must be registered separately.
+	 *  Convenience constructor.
+	 *  All borders are resizable in increments of
+	 *  a single pixel.
+	 *  Components must be registered separately.
 	 */
 	public ComponentResizer()
 	{
@@ -53,9 +55,11 @@ public class ComponentResizer extends MouseAdapter {
 	}
 
 	/**
-	 *  Convenience contructor. All borders are resizable in increments of
-	 *  a single pixel. Components can be registered when the class is created
-	 *  or they can be registered separately afterwards.
+	 *  Convenience constructor.
+	 *  All borders are resizable in increments of
+	 *  a single pixel.
+	 *  Components can be registered when the class is created,
+	 *  or they can be registered separately afterward.
 	 *
 	 *  @param components components to be automatically registered
 	 */
@@ -65,9 +69,11 @@ public class ComponentResizer extends MouseAdapter {
 	}
 
 	/**
-	 *  Convenience contructor. Eligible borders are resizable in increments of
-	 *  a single pixel. Components can be registered when the class is created
-	 *  or they can be registered separately afterwards.
+	 *  Convenience constructor.
+	 *  Eligible borders are resizable in increments of
+	 *  a single pixel.
+	 *  Components can be registered when the class is created,
+	 *  or they can be registered separately afterward.
 	 *
 	 *  @param dragInsets Insets specifying which borders are eligible to be
 	 *                    resized.
@@ -127,7 +133,7 @@ public class ComponentResizer extends MouseAdapter {
 	/**
 	 *  Set the drag dragInsets. The insets specify an area where mouseDragged
 	 *  events are recognized from the edge of the border inwards. A value of
-	 *  0 for any size will imply that the border is not resizable. Otherwise
+	 *  0 for any size will imply that the border is not resizable. Otherwise,
 	 *  the appropriate drag cursor will appear when the mouse is inside the
 	 *  resizable border area.
 	 *
@@ -172,8 +178,7 @@ public class ComponentResizer extends MouseAdapter {
 	}
 
 	/**
-	 *  Specify the minimum size for the component. The minimum size is
-	 *  constrained by the drag insets.
+	 *  Specify the minimum size for the component. The drag insets constrain the minimum size	*.
 	 *
 	 *  @param minimumSize the minimum size for a component.
 	 */
@@ -187,7 +192,7 @@ public class ComponentResizer extends MouseAdapter {
 	/**
 	 *  Remove listeners from the specified component
 	 *
-	 *  @param component  the component the listeners are removed from
+	 *  @param components  the component the listeners are removed from
 	 */
 	public void deregisterComponent(Component... components)
 	{
@@ -201,7 +206,7 @@ public class ComponentResizer extends MouseAdapter {
 	/**
 	 *  Add the required listeners to the specified component
 	 *
-	 *  @param component  the component the listeners are added to
+	 *  @param components  the component the listeners are added to
 	 */
 	public void registerComponent(Component... components)
 	{
@@ -236,8 +241,8 @@ public class ComponentResizer extends MouseAdapter {
 	}
 
 	/**
-	 *  When the components minimum size is less than the drag insets then
-	 *	we can't determine which border should be resized so we need to
+	 *  When the component minimum size is less than the drag insets, then
+	 *	we can't determine which border should be resized, so we need to
 	 *  prevent this from happening.
 	 */
 	private void validateMinimumAndInsets(Dimension minimum, Insets drag)
@@ -325,13 +330,12 @@ public class ComponentResizer extends MouseAdapter {
 		SwingUtilities.convertPointToScreen(pressed, source);
 		bounds = source.getBounds();
 
-		//  Making sure autoscrolls is false will allow for smoother resizing
+		//  Making sure autoscroll is false will allow for smoother resizing
 		//  of components
 
-		if (source instanceof JComponent)
+		if (source instanceof JComponent jc)
 		{
-			JComponent jc = (JComponent)source;
-			autoscrolls = jc.getAutoscrolls();
+            autoscroll = jc.getAutoscrolls();
 			jc.setAutoscrolls( false );
 		}
 	}
@@ -349,7 +353,7 @@ public class ComponentResizer extends MouseAdapter {
 
 		if (source instanceof JComponent)
 		{
-			((JComponent)source).setAutoscrolls( autoscrolls );
+			((JComponent)source).setAutoscrolls(autoscroll);
 		}
 
 		if (autoLayout)
@@ -360,7 +364,7 @@ public class ComponentResizer extends MouseAdapter {
 			{
 				if (parent instanceof JComponent)
 				{
-					((JComponent)parent).revalidate();
+					parent.revalidate();
 				}
 				else
 				{
@@ -374,14 +378,14 @@ public class ComponentResizer extends MouseAdapter {
 	 *  Resize the component ensuring location and size is within the bounds
 	 *  of the parent container and that the size is within the minimum and
 	 *  maximum constraints.
-	 *
+	 * <p>
 	 *  All calculations are done using the bounds of the component when the
 	 *  resizing started.
 	 */
 	@Override
 	public void mouseDragged(MouseEvent e)
 	{
-		if (resizing == false) return;
+		if (!resizing) return;
 
 		Component source = e.getComponent();
 		Point dragged = e.getPoint();
@@ -490,8 +494,8 @@ public class ComponentResizer extends MouseAdapter {
 		{
 //			return source.getParent().getSize();
 			Dimension d = source.getParent().getSize();
-			d.width += -10;
-			d.height += -10;
+            d.width -= 10;
+            d.height -= 10;
 			return d;
 		}
 	}

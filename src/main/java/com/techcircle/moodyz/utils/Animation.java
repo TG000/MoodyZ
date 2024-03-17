@@ -5,7 +5,6 @@ import org.jdesktop.core.animation.timing.TimingSource;
 import org.jdesktop.core.animation.timing.TimingTargetAdapter;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 public class Animation {
@@ -36,15 +35,6 @@ public class Animation {
                     }
                 }).build();
         animator.start();
-    }
-
-    public void setHoverColor(JComponent component, Color color) {
-        component.setOpaque(true);
-        component.setBackground(color);
-    }
-
-    public void removeHoverColor(JComponent component) {
-        component.setOpaque(false);
     }
 
     public interface AnimationCallback {

@@ -1,25 +1,19 @@
 package com.techcircle.moodyz.form;
 
-import com.techcircle.moodyz.utils.GUIStyler;
+import com.techcircle.moodyz.component.global.RoundedPanel;
 
 /**
  *
  * @author Gica Tran
  */
-public class Home extends javax.swing.JPanel {
-    private GUIStyler guiStyler;
+public class Home extends RoundedPanel {
 
     /**
      * Creates new form Home
      */
     public Home() {
+        super(20);
         initComponents();
-        init();
-    }
-
-    private void init() {
-        guiStyler = new GUIStyler();
-        guiStyler.makeRounded(this, 150);
     }
 
     /**

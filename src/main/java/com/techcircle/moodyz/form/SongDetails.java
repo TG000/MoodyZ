@@ -1,15 +1,18 @@
 package com.techcircle.moodyz.form;
 
+import com.techcircle.moodyz.component.global.RoundedPanel;
+
 /**
  *
  * @author Gica Tran
  */
-public class SongDetails extends javax.swing.JPanel {
+public class SongDetails extends RoundedPanel {
 
     /**
      * Creates new form SongDetails
      */
     public SongDetails() {
+        super(20);
         initComponents();
     }
 

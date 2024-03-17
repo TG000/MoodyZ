@@ -2,6 +2,7 @@ package com.techcircle.moodyz.component.layouts;
 
 import com.techcircle.moodyz.form.Home;
 import com.techcircle.moodyz.form.SongDetails;
+import com.techcircle.moodyz.utils.GUIStyler;
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -9,7 +10,6 @@ import net.miginfocom.swing.MigLayout;
  * @author Gica Tran
  */
 public class MainLayout extends javax.swing.JLayeredPane {
-
     /**
      * Creates new form Layout
      */
