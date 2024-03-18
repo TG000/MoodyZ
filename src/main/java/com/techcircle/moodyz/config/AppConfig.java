@@ -9,7 +9,6 @@ import com.techcircle.moodyz.MoodyZApplication;
 import com.techcircle.moodyz.constants.AssetConstants;
 import com.techcircle.moodyz.router.Route;
 import com.techcircle.moodyz.router.Router;
-import com.techcircle.moodyz.router.RouterListener;
 import com.techcircle.moodyz.utils.ComponentResizer;
 import com.techcircle.moodyz.utils.ResourcesManager;
 
