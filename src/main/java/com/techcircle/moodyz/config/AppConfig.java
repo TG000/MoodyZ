@@ -16,12 +16,11 @@ public class AppConfig {
     private final MoodyZApplication mainApp;
     private final ResourcesManager resourcesManager;
 
-    public static Router router;
+    public static Router router = new Router();
 
     public AppConfig(MoodyZApplication mainApp) {
         this.mainApp = mainApp;
         this.resourcesManager = new ResourcesManager(this.mainApp);
-        router = new Router();
     }
 
     public void init() {
