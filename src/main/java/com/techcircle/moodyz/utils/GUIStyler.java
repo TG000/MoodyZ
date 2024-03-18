@@ -3,7 +3,6 @@ package com.techcircle.moodyz.utils;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
-import java.util.Map;
 
 public class GUIStyler {
     private final HashMap<JComponent, Color> componentBgColor;

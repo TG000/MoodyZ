@@ -1,9 +1,12 @@
 package com.techcircle.moodyz;
 
 import com.techcircle.moodyz.config.AppConfig;
+import com.techcircle.moodyz.constants.RouteConstants;
 import com.techcircle.moodyz.utils.GUIStyler;
 import com.techcircle.moodyz.utils.IconBuilder;
 import com.techcircle.moodyz.utils.Animation;
+import com.techcircle.moodyz.app.views.components.InPlayingSong;
+import com.techcircle.moodyz.app.views.components.layouts.MainLayout;
 import org.jdesktop.core.animation.timing.Animator;
 import org.jdesktop.core.animation.timing.TimingSource;
 import org.jdesktop.swing.animation.timing.sources.SwingTimerTimingSource;
@@ -12,12 +15,15 @@ import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Gica Tran
  */
-public class MoodyZApplication extends javax.swing.JFrame {
+public class MoodyZApplication extends JFrame {
     private AppConfig appConfig;
     private TimingSource timingSource;
     private Animation animation;
@@ -29,23 +35,34 @@ public class MoodyZApplication extends javax.swing.JFrame {
     private int pY;
 
     public MoodyZApplication() {
+        initApp();
+        initRoutes();
+
         initComponents();
-        init();
+        initForm();
     }
     
-    private void init() {
+    private void initApp() {
         appConfig = new AppConfig(this);
-        timingSource = new SwingTimerTimingSource();
-        animation = new Animation(timingSource);
         guiStyler = new GUIStyler();
 
         appConfig.init();
-        Animator.setDefaultTimingSource(timingSource);
-        timingSource.init();
-        initIcon();
     }
 
-    private void initIcon() {
+    private void initRoutes() {
+        appConfig.use(RouteConstants.HOME);
+        appConfig.use(RouteConstants.SEARCH);
+
+        appConfig.setDefault(RouteConstants.HOME);
+    }
+
+    private void initForm() {
+        timingSource = new SwingTimerTimingSource();
+        animation = new Animation(timingSource);
+
+        Animator.setDefaultTimingSource(timingSource);
+        timingSource.init();
+
         btnMinimize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MINIMIZE, btnMinimize.getHeight() / 4, Color.WHITE));
         btnMaximize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MAXIMIZE, btnMaximize.getHeight() / 3, Color.WHITE));
         btnClose.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.TIMES, btnClose.getHeight() / 3, Color.WHITE));
@@ -60,211 +77,211 @@ public class MoodyZApplication extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        border = new javax.swing.JPanel();
-        background = new javax.swing.JPanel();
-        titleBar = new javax.swing.JPanel();
-        btnMinimize = new javax.swing.JButton();
-        btnMaximize = new javax.swing.JButton();
-        btnClose = new javax.swing.JButton();
-        btnMore = new javax.swing.JButton();
-        body = new javax.swing.JLayeredPane();
-        mainLayout = new com.techcircle.moodyz.component.layouts.MainLayout();
-        inPlayingSong = new com.techcircle.moodyz.component.InPlayingSong();
+        border = new JPanel();
+        background = new JPanel();
+        titleBar = new JPanel();
+        btnMinimize = new JButton();
+        btnMaximize = new JButton();
+        btnClose = new JButton();
+        btnMore = new JButton();
+        body = new JLayeredPane();
+        mainLayout = new MainLayout();
+        inPlayingSong = new InPlayingSong();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setSize(new java.awt.Dimension(1366, 768));
+        setSize(new Dimension(1366, 768));
 
-        border.setBackground(new java.awt.Color(30, 30, 30));
-        border.setPreferredSize(new java.awt.Dimension(1366, 768));
+        border.setBackground(new Color(30, 30, 30));
+        border.setPreferredSize(new Dimension(1366, 768));
 
-        background.setBackground(new java.awt.Color(0, 0, 0));
-        background.setPreferredSize(new java.awt.Dimension(1366, 768));
+        background.setBackground(new Color(0, 0, 0));
+        background.setPreferredSize(new Dimension(1366, 768));
 
-        titleBar.setBackground(new java.awt.Color(0, 0, 0));
-        titleBar.setPreferredSize(new java.awt.Dimension(1366, 30));
-        titleBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
+        titleBar.setBackground(new Color(0, 0, 0));
+        titleBar.setPreferredSize(new Dimension(1366, 30));
+        titleBar.addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent evt) {
                 titleBarMouseDragged(evt);
             }
         });
-        titleBar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
+        titleBar.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent evt) {
                 titleBarMousePressed(evt);
             }
         });
 
         btnMinimize.setBorder(null);
         btnMinimize.setContentAreaFilled(false);
-        btnMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
+        btnMinimize.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
                 btnMinimizeMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
+            public void mouseExited(MouseEvent evt) {
                 btnMinimizeMouseExited(evt);
             }
         });
-        btnMinimize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnMinimize.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 btnMinimizeActionPerformed(evt);
             }
         });
 
         btnMaximize.setBorder(null);
         btnMaximize.setContentAreaFilled(false);
-        btnMaximize.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
+        btnMaximize.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
                 btnMaximizeMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
+            public void mouseExited(MouseEvent evt) {
                 btnMaximizeMouseExited(evt);
             }
         });
-        btnMaximize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnMaximize.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 btnMaximizeActionPerformed(evt);
             }
         });
 
         btnClose.setBorder(null);
         btnClose.setContentAreaFilled(false);
-        btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
+        btnClose.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
                 btnCloseMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
+            public void mouseExited(MouseEvent evt) {
                 btnCloseMouseExited(evt);
             }
         });
-        btnClose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnClose.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 btnCloseActionPerformed(evt);
             }
         });
 
         btnMore.setBorder(null);
         btnMore.setContentAreaFilled(false);
-        btnMore.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnMore.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 btnMoreActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout titleBarLayout = new javax.swing.GroupLayout(titleBar);
+        GroupLayout titleBarLayout = new GroupLayout(titleBar);
         titleBar.setLayout(titleBarLayout);
         titleBarLayout.setHorizontalGroup(
-            titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleBarLayout.createSequentialGroup()
+            titleBarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, titleBarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnMore, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMore, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnMinimize, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnMaximize, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMaximize, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnClose, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
         );
         titleBarLayout.setVerticalGroup(
-            titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnMinimize, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-            .addComponent(btnMaximize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnMore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnClose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            titleBarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(btnMinimize, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(btnMaximize, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnMore, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnClose, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        body.setLayout(new java.awt.BorderLayout());
-        body.add(mainLayout, java.awt.BorderLayout.CENTER);
+        body.setLayout(new BorderLayout());
+        body.add(mainLayout, BorderLayout.CENTER);
 
-        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
+        GroupLayout backgroundLayout = new GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(titleBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 1366, Short.MAX_VALUE)
-            .addComponent(inPlayingSong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            backgroundLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(titleBar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(body, GroupLayout.DEFAULT_SIZE, 1366, Short.MAX_VALUE)
+            .addComponent(inPlayingSong, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         backgroundLayout.setVerticalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            backgroundLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleBar, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+                .addComponent(body, GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addComponent(inPlayingSong, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(inPlayingSong, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout borderLayout = new javax.swing.GroupLayout(border);
+        GroupLayout borderLayout = new GroupLayout(border);
         border.setLayout(borderLayout);
         borderLayout.setHorizontalGroup(
-            borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            borderLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(background, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         borderLayout.setVerticalGroup(
-            borderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            borderLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(background, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(border, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(border, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(border, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(border, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+    private void btnCloseActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         close();
     }//GEN-LAST:event_btnCloseActionPerformed
 
-    private void btnMaximizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaximizeActionPerformed
+    private void btnMaximizeActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnMaximizeActionPerformed
         toggleMaximize();
     }//GEN-LAST:event_btnMaximizeActionPerformed
 
-    private void btnMinimizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinimizeActionPerformed
+    private void btnMinimizeActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnMinimizeActionPerformed
         minimize();
     }//GEN-LAST:event_btnMinimizeActionPerformed
 
-    private void titleBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMouseDragged
+    private void titleBarMouseDragged(MouseEvent evt) {//GEN-FIRST:event_titleBarMouseDragged
         this.setLocation(this.getLocation().x + evt.getX() - pX, this.getLocation().y + evt.getY() - pY);
     }//GEN-LAST:event_titleBarMouseDragged
 
-    private void titleBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMousePressed
+    private void titleBarMousePressed(MouseEvent evt) {//GEN-FIRST:event_titleBarMousePressed
         pX = evt.getX();
         pY = evt.getY();
     }//GEN-LAST:event_titleBarMousePressed
 
-    private void btnCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseEntered
+    private void btnCloseMouseEntered(MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseEntered
         guiStyler.setHoverBgColor(btnClose, Color.RED);
     }//GEN-LAST:event_btnCloseMouseEntered
 
-    private void btnCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseExited
+    private void btnCloseMouseExited(MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseExited
         guiStyler.removeHoverBgColor(btnClose);
     }//GEN-LAST:event_btnCloseMouseExited
 
-    private void btnMaximizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaximizeMouseEntered
+    private void btnMaximizeMouseEntered(MouseEvent evt) {//GEN-FIRST:event_btnMaximizeMouseEntered
         guiStyler.setHoverBgColor(btnMaximize, Color.DARK_GRAY);
     }//GEN-LAST:event_btnMaximizeMouseEntered
 
-    private void btnMaximizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaximizeMouseExited
+    private void btnMaximizeMouseExited(MouseEvent evt) {//GEN-FIRST:event_btnMaximizeMouseExited
         guiStyler.removeHoverBgColor(btnMaximize);
     }//GEN-LAST:event_btnMaximizeMouseExited
 
-    private void btnMinimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMouseEntered
+    private void btnMinimizeMouseEntered(MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMouseEntered
         guiStyler.setHoverBgColor(btnMinimize, Color.DARK_GRAY);
     }//GEN-LAST:event_btnMinimizeMouseEntered
 
-    private void btnMinimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMouseExited
+    private void btnMinimizeMouseExited(MouseEvent evt) {//GEN-FIRST:event_btnMinimizeMouseExited
         guiStyler.removeHoverBgColor(btnMinimize);
     }//GEN-LAST:event_btnMinimizeMouseExited
 
-    private void btnMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoreActionPerformed
+    private void btnMoreActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnMoreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMoreActionPerformed
 
@@ -300,35 +317,35 @@ public class MoodyZApplication extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MoodyZApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(MoodyZApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
+        EventQueue.invokeLater(() -> {
             new MoodyZApplication().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background;
-    private javax.swing.JLayeredPane body;
-    private javax.swing.JPanel border;
-    private javax.swing.JButton btnClose;
-    private javax.swing.JButton btnMaximize;
-    private javax.swing.JButton btnMinimize;
-    private javax.swing.JButton btnMore;
-    private com.techcircle.moodyz.component.InPlayingSong inPlayingSong;
-    private com.techcircle.moodyz.component.layouts.MainLayout mainLayout;
-    private javax.swing.JPanel titleBar;
+    private JPanel background;
+    private JLayeredPane body;
+    private JPanel border;
+    private JButton btnClose;
+    private JButton btnMaximize;
+    private JButton btnMinimize;
+    private JButton btnMore;
+    private InPlayingSong inPlayingSong;
+    private MainLayout mainLayout;
+    private JPanel titleBar;
     // End of variables declaration//GEN-END:variables
 }
