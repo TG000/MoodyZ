@@ -2,14 +2,10 @@ package com.techcircle.moodyz.utils;
 
 import com.techcircle.moodyz.MoodyZApplication;
 
-import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.Map;
 
 public class ResourcesManager {
     private final MoodyZApplication root;

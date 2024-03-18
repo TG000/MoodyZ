@@ -1,9 +1,7 @@
 package com.techcircle.moodyz.app.views.components.layouts;
 
-import com.techcircle.moodyz.app.views.forms.Home;
 import com.techcircle.moodyz.app.views.forms.SongDetails;
 import com.techcircle.moodyz.config.AppConfig;
-import com.techcircle.moodyz.router.RouterListener;
 import net.miginfocom.swing.MigLayout;
 
 /**
