@@ -36,7 +36,7 @@ public class TopNav extends RoundedPanel {
         this.add(btnHome, "grow");
         this.add(btnSearch, "grow");
 
-        if (AppConfig.getCurrentPage() == RouteConstants.HOME.component) {
+        if (AppConfig.getCurrentRoute() == RouteConstants.HOME) {
             guiStyler.setHoverTextColor(btnHome, Color.WHITE);
             btnHome.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.HOME, 22, Color.WHITE));
             guiStyler.setHoverTextColor(btnSearch, Color.GRAY);
@@ -132,28 +132,28 @@ public class TopNav extends RoundedPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseEntered
-        if (AppConfig.getCurrentPage() != RouteConstants.HOME.component) {
+        if (AppConfig.getCurrentRoute() != RouteConstants.HOME) {
             guiStyler.setHoverTextColor(btnHome, Color.WHITE);
             btnHome.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.HOME, 22, Color.WHITE));
         }
     }//GEN-LAST:event_btnHomeMouseEntered
 
     private void btnHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomeMouseExited
-        if (AppConfig.getCurrentPage() != RouteConstants.HOME.component) {
+        if (AppConfig.getCurrentRoute() != RouteConstants.HOME) {
             guiStyler.removeHoverTextColor(btnHome);
             btnHome.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.HOME, 22, Color.GRAY));
         }
     }//GEN-LAST:event_btnHomeMouseExited
 
     private void btnSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseEntered
-        if (AppConfig.getCurrentPage() != RouteConstants.SEARCH.component) {
+        if (AppConfig.getCurrentRoute() != RouteConstants.SEARCH) {
             guiStyler.setHoverTextColor(btnSearch, Color.WHITE);
             btnSearch.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.SEARCH, 22, Color.WHITE));
         }
     }//GEN-LAST:event_btnSearchMouseEntered
 
     private void btnSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseExited
-        if (AppConfig.getCurrentPage() != RouteConstants.SEARCH.component) {
+        if (AppConfig.getCurrentRoute() != RouteConstants.SEARCH) {
             guiStyler.removeHoverTextColor(btnSearch);
             btnSearch.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.SEARCH, 22, Color.GRAY));
         }

@@ -49,6 +49,10 @@ public class AppConfig {
     }
 
     public static JPanel getCurrentPage() {
+        return router.getCurrentPage();
+    }
+
+    public static Route getCurrentRoute() {
         return router.getCurrentRoute();
     }
 }

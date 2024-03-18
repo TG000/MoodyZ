@@ -22,15 +22,15 @@ public class Router {
         }
 
         this.defaultRoute = route;
-        this.currentRoute = defaultRoute;
+        this.currentRoute = route;
     }
 
     public void useRoute(Route route) {
         routeList.add(route);
     }
 
-    public JPanel getCurrentRoute() {
-        return this.currentRoute.component;
+    public Route getCurrentRoute() {
+        return this.currentRoute;
     }
 
     public void setCurrentRoute(Route route) {
@@ -46,5 +46,9 @@ public class Router {
         for (RouterListener listener : listeners) {
             listener.routeChanged();
         }
+    }
+
+    public JPanel getCurrentPage() {
+        return getCurrentRoute().component;
     }
 }

@@ -63,10 +63,10 @@ public class MoodyZApplication extends JFrame {
         Animator.setDefaultTimingSource(timingSource);
         timingSource.init();
 
-        btnMinimize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MINIMIZE, btnMinimize.getHeight() / 4, Color.WHITE));
-        btnMaximize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MAXIMIZE, btnMaximize.getHeight() / 3, Color.WHITE));
-        btnClose.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.TIMES, btnClose.getHeight() / 3, Color.WHITE));
-        btnMore.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.ELLIPSIS_H, btnMore.getHeight() / 2, Color.WHITE));
+        btnMinimize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MINIMIZE, 10, Color.WHITE));
+        btnMaximize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MAXIMIZE, 15, Color.WHITE));
+        btnClose.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.TIMES, 15, Color.WHITE));
+        btnMore.setIcon(new IconBuilder().prepareIcon(FontAwesomeSolid.ELLIPSIS_H, 20, Color.WHITE));
     }
 
     /**
@@ -292,13 +292,13 @@ public class MoodyZApplication extends JFrame {
     private void toggleMaximize() {
         if (maximize) {
             setBounds(normalBounds);
-            btnMaximize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_RESTORE, btnMaximize.getHeight(), Color.WHITE));
+            btnMaximize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MAXIMIZE, 15, Color.WHITE));
             maximize = false;
         }
         else {
             normalBounds = getBounds();
             setExtendedState(JFrame.MAXIMIZED_BOTH);
-            btnMaximize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_MAXIMIZE, btnMaximize.getHeight(), Color.WHITE));
+            btnMaximize.setIcon(new IconBuilder().prepareIcon(FontAwesomeRegular.WINDOW_RESTORE, 15, Color.WHITE));
             maximize = true;
         }
     }
