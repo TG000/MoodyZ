@@ -6,8 +6,8 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class Router {
-    private ArrayList<Route> routeList;
-    private ArrayList<RouterListener> listeners;
+    private final ArrayList<Route> routeList;
+    private final ArrayList<RouterListener> listeners;
 
     public Route defaultRoute;
     public Route currentRoute;
