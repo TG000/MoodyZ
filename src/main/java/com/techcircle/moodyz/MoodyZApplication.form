@@ -147,7 +147,13 @@
                     <Property name="pressedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="20" green="13" red="94" type="rgb"/>
                     </Property>
+                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new IconBuilder(FontAwesomeSolid.TIMES, 15, Color.WHITE).prepareIcon()" type="code"/>
+                    </Property>
                     <Property name="radius" type="int" value="0"/>
+                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new IconBuilder(FontAwesomeSolid.TIMES, 15, Color.WHITE).prepareIcon()" type="code"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCloseActionPerformed"/>
@@ -170,7 +176,13 @@
                     <Property name="pressedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
+                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new IconBuilder(FontAwesomeRegular.WINDOW_MAXIMIZE, 15, Color.WHITE).prepareIcon()" type="code"/>
+                    </Property>
                     <Property name="radius" type="int" value="0"/>
+                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new IconBuilder(FontAwesomeRegular.WINDOW_MAXIMIZE, 15, Color.WHITE).prepareIcon()" type="code"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMaximizeActionPerformed"/>
@@ -193,7 +205,13 @@
                     <Property name="pressedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
+                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new IconBuilder(FontAwesomeRegular.WINDOW_MINIMIZE, 10, Color.WHITE).prepareIcon()" type="code"/>
+                    </Property>
                     <Property name="radius" type="int" value="0"/>
+                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new IconBuilder(FontAwesomeRegular.WINDOW_MINIMIZE, 10, Color.WHITE).prepareIcon()" type="code"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMinimizeActionPerformed"/>
@@ -213,7 +231,13 @@
                     <Property name="pressedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
+                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new IconBuilder(FontAwesomeSolid.ELLIPSIS_H, 20, Color.WHITE).prepareIcon()" type="code"/>
+                    </Property>
                     <Property name="radius" type="int" value="0"/>
+                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new IconBuilder(FontAwesomeSolid.ELLIPSIS_H, 20, Color.WHITE).prepareIcon()" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>

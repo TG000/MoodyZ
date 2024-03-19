@@ -75,6 +75,9 @@
         <Property name="pressedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="19" green="19" red="19" type="rgb"/>
         </Property>
+        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new IconBuilder(FontAwesomeSolid.HOME, 22, Color.WHITE).prepareIcon()&#xd;&#xa;" type="code"/>
+        </Property>
         <Property name="textAlignment" type="int" value="2"/>
       </Properties>
     </Component>
@@ -102,6 +105,9 @@
         <Property name="iconTextGap" type="int" value="15"/>
         <Property name="pressedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="19" green="19" red="19" type="rgb"/>
+        </Property>
+        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new IconBuilder(FontAwesomeSolid.SEARCH, 22, Color.WHITE).prepareIcon()&#xd;&#xa;" type="code"/>
         </Property>
         <Property name="textAlignment" type="int" value="2"/>
       </Properties>
