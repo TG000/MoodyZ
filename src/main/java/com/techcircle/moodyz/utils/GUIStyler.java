@@ -5,37 +5,61 @@ import java.awt.*;
 import java.util.HashMap;
 
 public class GUIStyler {
-    private final HashMap<JComponent, Color> componentBgColor;
-    private final HashMap<JComponent, Color> componentTextColor;
+    private final HashMap<JComponent, Color> backgroundColorList;
+    private final HashMap<JComponent, Color> foregroundColorList;
+    private final HashMap<JButton, Icon> iconList;
 
     public GUIStyler() {
-        componentBgColor = new HashMap<>();
-        componentTextColor = new HashMap<>();
+        backgroundColorList = new HashMap<>();
+        foregroundColorList = new HashMap<>();
+        iconList = new HashMap<>();
     }
 
     public void setHoverBgColor(JComponent component, Color color) {
-        componentBgColor.put(component, component.getBackground());
+        backgroundColorList.put(component, component.getBackground());
         component.setOpaque(true);
         component.setBackground(color);
     }
 
     public void removeHoverBgColor(JComponent component) {
-        if (componentBgColor.containsKey(component)) {
+        if (backgroundColorList.containsKey(component)) {
             component.setOpaque(false);
-            component.setBackground(componentBgColor.get(component));
-            componentBgColor.remove(component);
+            component.setBackground(backgroundColorList.get(component));
+            backgroundColorList.remove(component);
         }
     }
 
     public void setHoverTextColor(JComponent component, Color color) {
-        componentTextColor.put(component, component.getForeground());
+        foregroundColorList.put(component, component.getForeground());
         component.setForeground(color);
     }
 
     public void removeHoverTextColor(JComponent component) {
-        if (componentTextColor.containsKey(component)) {
-            component.setForeground(componentTextColor.get(component));
-            componentTextColor.remove(component);
+        if (foregroundColorList.containsKey(component)) {
+            component.setForeground(foregroundColorList.get(component));
+            foregroundColorList.remove(component);
+        }
+    }
+
+    public void setHoverButtonColor(JButton button, Color color, Icon icon) {
+        setHoverTextColor(button, color);
+
+        if (iconList.containsKey(button)) {
+            iconList.replace(button, button.getIcon());
+        }
+        else {
+            iconList.put(button, button.getIcon());
+        }
+
+        button.setIcon(icon);
+    }
+
+    public void removeHoverButtonColor(JButton button) {
+        removeHoverTextColor(button);
+
+        if (iconList.containsKey(button)) {
+            button.setIcon(iconList.get(button));
+            iconList.remove(button);
         }
     }
 }

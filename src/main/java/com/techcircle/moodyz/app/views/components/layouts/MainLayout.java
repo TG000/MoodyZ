@@ -1,9 +1,7 @@
 package com.techcircle.moodyz.app.views.components.layouts;
 
-import com.techcircle.moodyz.app.views.forms.Home;
 import com.techcircle.moodyz.app.views.forms.SongDetails;
 import com.techcircle.moodyz.config.AppConfig;
-import com.techcircle.moodyz.router.RouterListener;
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -22,7 +20,7 @@ public class MainLayout extends javax.swing.JLayeredPane {
     private void init() {
         setLayout(new MigLayout("filly", "8[350]8[grow]8[350]8", "0[]0"));
         this.add(new SideBar(), "grow");
-        this.add(AppConfig.getCurrentPage(), "grow");
+        this.add(AppConfig.router.getCurrentPage(), "grow");
         this.add(new SongDetails(), "grow");
 
         AppConfig.router.addRouteListener(this::reloadCurrentPage);
@@ -31,7 +29,7 @@ public class MainLayout extends javax.swing.JLayeredPane {
     private void reloadCurrentPage() {
         remove(getComponent(1));
 
-        add(AppConfig.getCurrentPage(), "grow", 1);
+        add(AppConfig.router.getCurrentPage(), "grow", 1);
 
         revalidate();
         repaint();

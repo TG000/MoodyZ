@@ -6,14 +6,20 @@ import org.kordamp.ikonli.swing.FontIcon;
 import java.awt.*;
 
 public class IconBuilder {
-    public IconBuilder() {
+    private final Ikon icon;
+    private final int size;
+    private final Color color;
 
+    public IconBuilder(Ikon icon, int size, Color color) {
+        this.icon = icon;
+        this.size = size;
+        this.color = color;
     }
 
-    public FontIcon prepareIcon(Ikon icon, int size, Color color) {
-        FontIcon newIcon = FontIcon.of(icon);
-        newIcon.setIconSize(size);
-        newIcon.setIconColor(color);
+    public FontIcon prepareIcon() {
+        FontIcon newIcon = FontIcon.of(this.icon);
+        newIcon.setIconSize(this.size);
+        newIcon.setIconColor(this.color);
         return newIcon;
     }
 }

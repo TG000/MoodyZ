@@ -1,11 +1,13 @@
 package com.techcircle.moodyz.router;
 
+import com.techcircle.moodyz.constants.RouteConstants;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
 public class Router {
-    private ArrayList<Route> routeList;
-    private ArrayList<RouterListener> listeners;
+    private final ArrayList<Route> routeList;
+    private final ArrayList<RouterListener> listeners;
 
     public Route defaultRoute;
     public Route currentRoute;
@@ -13,7 +15,8 @@ public class Router {
     public Router() {
         this.routeList = new ArrayList<>();
         this.listeners = new ArrayList<>();
-        this.defaultRoute = null;
+        this.defaultRoute = RouteConstants.HOME;
+        this.currentRoute = RouteConstants.HOME;
     }
 
     public void setDefaultRoute(Route route) {
