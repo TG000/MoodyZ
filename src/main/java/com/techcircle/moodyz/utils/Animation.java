@@ -7,19 +7,14 @@ import org.jdesktop.core.animation.timing.TimingTargetAdapter;
 import javax.swing.*;
 import java.util.concurrent.TimeUnit;
 
-public class AnimationManager {
-    public enum ActionType {
-        MINIMIZE,
-        EXIT,
-    }
-
+public class Animation {
     private final TimingSource timingSource;
 
-    public AnimationManager(TimingSource timingSource) {
+    public Animation(TimingSource timingSource) {
         this.timingSource = timingSource;
     }
 
-    public void fadeOut(JFrame frame, ActionType actionType) {
+    public void fadeOut(JFrame frame, AnimationCallback callback) {
         Animator animator = new Animator.Builder(timingSource)
                 .setDuration(100, TimeUnit.MILLISECONDS)
                 .setInterpolator(new org.jdesktop.core.animation.timing.interpolators.AccelerationInterpolator(0.5, 0.5))
@@ -31,20 +26,18 @@ public class AnimationManager {
 
                     @Override
                     public void end(Animator source) {
-                        switch (actionType) {
-                            case EXIT:
-                                System.exit(0);
-                                break;
-                            case MINIMIZE:
-                                frame.setState(JFrame.ICONIFIED);
-                                break;
-                            default:
-                                break;
+                        // Do some code here
+                        if (callback != null) {
+                            callback.onAnimationComplete();
                         }
 
                         frame.setOpacity(1);
                     }
                 }).build();
         animator.start();
+    }
+
+    public interface AnimationCallback {
+        void onAnimationComplete();
     }
 }
