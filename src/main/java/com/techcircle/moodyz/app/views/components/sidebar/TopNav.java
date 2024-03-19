@@ -52,8 +52,7 @@ public class TopNav extends RoundedPanel {
 
         btnHome.setBackground(new java.awt.Color(25, 25, 25));
         btnHome.setForeground(new java.awt.Color(128, 128, 128));
-        btnHome.setIcon(new IconBuilder(FontAwesomeSolid.HOME, 22, Color.GRAY).prepareIcon()
-        );
+        btnHome.setIcon(new IconBuilder(FontAwesomeSolid.HOME, 22, Color.GRAY).prepareIcon());
         btnHome.setText("Home");
         btnHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHome.setFont(new java.awt.Font("Proxima Nova Rg", 1, 16)); // NOI18N
@@ -64,8 +63,7 @@ public class TopNav extends RoundedPanel {
 
         btnSearch.setBackground(new java.awt.Color(25, 25, 25));
         btnSearch.setForeground(new java.awt.Color(128, 128, 128));
-        btnSearch.setIcon(new IconBuilder(FontAwesomeSolid.SEARCH, 22, Color.GRAY).prepareIcon()
-        );
+        btnSearch.setIcon(new IconBuilder(FontAwesomeSolid.SEARCH, 22, Color.GRAY).prepareIcon());
         btnSearch.setText("Search");
         btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSearch.setFont(new java.awt.Font("Proxima Nova Rg", 1, 16)); // NOI18N
