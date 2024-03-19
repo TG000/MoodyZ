@@ -1,7 +1,6 @@
 package com.techcircle.moodyz.app.views.components.sidebar;
 
-import com.techcircle.moodyz.app.views.components.global.RoundedPanel;
-import com.techcircle.moodyz.utils.GUIStyler;
+import com.techcircle.moodyz.app.views.components.global.CustomPanel;
 import com.techcircle.moodyz.utils.IconBuilder;
 import net.miginfocom.swing.MigLayout;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
@@ -12,30 +11,27 @@ import java.awt.*;
  *
  * @author Gica Tran
  */
-public class BottomNav extends RoundedPanel {
-    private GUIStyler guiStyler;
-
+public class BottomNav extends CustomPanel {
     /**
      * Creates new form BottomNav
      */
     public BottomNav() {
-        super(20);
         initComponents();
         init();
     }
 
     private void init() {
-        guiStyler = new GUIStyler();
-        this.setLayout(new MigLayout("", "25[]push[][]25", "15[][][]15"));
+        this.setLayout(new MigLayout("", "25[]push[][]25", "15[]10[]10[]15"));
 
         this.remove(txtDisplay);
         this.remove(btnAdd);
+        this.remove(btnPlaylists);
 
-        this.add(txtDisplay, "h 25");
-        this.add(btnAdd, "w 25, h 25, wrap");
+        this.add(txtDisplay, "h ::30");
+        this.add(btnAdd, "skip, wrap, w ::30, h ::30");
+        this.add(btnPlaylists, "wrap");
 
         txtDisplay.setIcon(new IconBuilder(FontAwesomeSolid.BOOKMARK, 22, Color.GRAY).prepareIcon());
-        btnAdd.setIcon(new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.GRAY).prepareIcon());
     }
 
     /**
@@ -47,26 +43,32 @@ public class BottomNav extends RoundedPanel {
     private void initComponents() {
 
         txtDisplay = new javax.swing.JLabel();
-        btnAdd = new javax.swing.JButton();
+        btnAdd = new com.techcircle.moodyz.app.views.components.global.CustomButton();
+        btnPlaylists = new com.techcircle.moodyz.app.views.components.global.CustomButton();
 
         setBackground(new java.awt.Color(25, 25, 25));
+        setRadius(20);
 
         txtDisplay.setFont(new java.awt.Font("Proxima Nova Rg", 1, 16)); // NOI18N
         txtDisplay.setForeground(new java.awt.Color(128, 128, 128));
-        txtDisplay.setText("    Your Library");
+        txtDisplay.setText("Your Library");
+        txtDisplay.setIconTextGap(20);
 
         btnAdd.setBackground(new java.awt.Color(25, 25, 25));
-        btnAdd.setBorder(null);
-        btnAdd.setContentAreaFilled(false);
-        btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAddMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAddMouseExited(evt);
-            }
-        });
+        btnAdd.setIcon(new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.GRAY).prepareIcon()
+        );
+        btnAdd.setHoverColor(new java.awt.Color(32, 32, 32));
+        btnAdd.setPressedColor(new java.awt.Color(5, 5, 5));
+        btnAdd.setPressedForeground(java.awt.Color.white);
+        btnAdd.setPressedIcon(new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.DARK_GRAY).prepareIcon()
+        );
+        btnAdd.setRadius(30);
+        btnAdd.setRolloverIcon(new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.WHITE).prepareIcon()
+        );
+
+        btnPlaylists.setText("Playlists");
+        btnPlaylists.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPlaylists.setFont(new java.awt.Font("Proxima Nova Rg", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,35 +76,31 @@ public class BottomNav extends RoundedPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtDisplay)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtDisplay)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(txtDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(226, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseEntered
-        guiStyler.setHoverButtonColor(btnAdd, Color.WHITE, new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.WHITE).prepareIcon());
-        guiStyler.setHoverBgColor(btnAdd, Color.DARK_GRAY);
-    }//GEN-LAST:event_btnAddMouseEntered
-
-    private void btnAddMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseExited
-        guiStyler.removeHoverButtonColor(btnAdd);
-        guiStyler.removeHoverBgColor(btnAdd);
-    }//GEN-LAST:event_btnAddMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
+    private com.techcircle.moodyz.app.views.components.global.CustomButton btnAdd;
+    private com.techcircle.moodyz.app.views.components.global.CustomButton btnPlaylists;
     private javax.swing.JLabel txtDisplay;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,7 +18,7 @@ public class MainLayout extends javax.swing.JLayeredPane {
     }
 
     private void init() {
-        setLayout(new MigLayout("filly", "8[350]8[grow]8[350]8", "0[]0"));
+        this.setLayout(new MigLayout("filly", "8[350]8[grow]8[350]8", "0[]0"));
         this.add(new SideBar(), "grow");
         this.add(AppConfig.router.getCurrentPage(), "grow");
         this.add(new SongDetails(), "grow");
@@ -27,12 +27,12 @@ public class MainLayout extends javax.swing.JLayeredPane {
     }
 
     private void reloadCurrentPage() {
-        remove(getComponent(1));
+        this.remove(getComponent(1));
 
-        add(AppConfig.router.getCurrentPage(), "grow", 1);
+        this.add(AppConfig.router.getCurrentPage(), "grow", 1);
 
-        revalidate();
-        repaint();
+        this.revalidate();
+        this.repaint();
     }
 
     /**

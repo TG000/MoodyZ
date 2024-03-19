@@ -1,12 +1,9 @@
 package com.techcircle.moodyz.app.views.components.global;
 
-import org.intellij.lang.annotations.JdkConstants;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 
 public class CustomButton extends JButton {
@@ -16,6 +13,8 @@ public class CustomButton extends JButton {
     private Color hoverForegroundColor;
     private Color pressedColor;
     private Color pressedForegroundColor;
+    private Color selectedColor;
+    private Color selectedForegroundColor;
     private int radius;
     private int textAlignment;
     private int iconTextGap;
@@ -50,7 +49,7 @@ public class CustomButton extends JButton {
         pressedForegroundColor = Color.WHITE;
         radius = 15;
         textAlignment = SwingConstants.CENTER;
-        iconTextGap = 4;
+        iconTextGap = 0;
         cursor = Cursor.getDefaultCursor();
         setOpaque(false);
         setContentAreaFilled(false);
@@ -66,28 +65,32 @@ public class CustomButton extends JButton {
         int width = getWidth();
         int height = getHeight();
 
-        // Determine the color based on button state
         Color color = backgroundColor;
-        Color textColor = foregroundColor; // Default text color
+        Color textColor = foregroundColor;
         Icon icon = getIcon();
         String text = getText();
 
-        if (getModel().isPressed()) {
-            color = pressedColor;
-            textColor = pressedForegroundColor;
-        } else if (getModel().isRollover()) {
-            color = hoverColor;
-            textColor = hoverForegroundColor; // Use hoverForegroundColor when hovered
-            icon = getRolloverIcon();
+        if (isSelected()) {
+            color = selectedColor;
+            textColor = selectedForegroundColor;
+            icon = getSelectedIcon();
+        } else {
+            if (getModel().isPressed()) {
+                color = pressedColor;
+                textColor = pressedForegroundColor;
+                icon = getPressedIcon();
+            } else if (getModel().isRollover()) {
+                color = hoverColor;
+                textColor = hoverForegroundColor;
+                icon = getRolloverIcon();
+            }
         }
 
-        // Fill the button background with the determined color
         g2.setColor(color);
         g2.fill(new RoundRectangle2D.Double(0, 0, width, height, radius, radius));
 
         // Calculate the available space for content
         int contentWidth = (icon != null ? icon.getIconWidth() + iconTextGap : 0);
-        int contentHeight = height;
 
         // Calculate the x-coordinate for content based on textAlignment
         int contentX = 0;
@@ -107,13 +110,14 @@ public class CustomButton extends JButton {
 
         // Draw text
         if (text != null && !text.isEmpty()) {
-            g2.setColor(textColor); // Use the determined text color
+            if (icon == null) {
+                contentX -= getTextWidth() / 2;
+            }
+            g2.setColor(textColor);
             FontMetrics metrics = g2.getFontMetrics();
-            int textWidth = metrics.stringWidth(text);
             int textHeight = metrics.getHeight();
-            int textX = contentX;
             int textY = (height - textHeight) / 2 + metrics.getAscent();
-            g2.drawString(text, textX, textY);
+            g2.drawString(text, contentX, textY);
         }
 
         g2.dispose();
@@ -127,18 +131,18 @@ public class CustomButton extends JButton {
         return new Dimension(width + 20, height + 10); // Add padding
     }
 
-    // Getter and setter for hoverForegroundColor
+    public int getTextWidth() {
+        FontMetrics fontMetrics = this.getFontMetrics(this.getFont());
+        String buttonText = this.getText();
+        return fontMetrics.stringWidth(buttonText);
+    }
+
     public Color getHoverForegroundColor() {
         return hoverForegroundColor;
     }
 
     public void setHoverForegroundColor(Color hoverForegroundColor) {
         this.hoverForegroundColor = hoverForegroundColor;
-    }
-
-    // Method to calculate text width
-    private int getTextWidth() {
-        return getFontMetrics(getFont()).stringWidth(getText());
     }
 
     @Override
@@ -193,10 +197,9 @@ public class CustomButton extends JButton {
 
     public void setTextAlignment(int textAlignment) {
         this.textAlignment = textAlignment;
-        repaint(); // Repaint the component to reflect text alignment change
+        repaint();
     }
 
-    // Getter and setter for iconTextGap
     public int getIconTextGap() {
         return iconTextGap;
     }
@@ -205,7 +208,7 @@ public class CustomButton extends JButton {
     public void setIconTextGap(int iconTextGap) {
         super.setIconTextGap(iconTextGap);
         this.iconTextGap = iconTextGap;
-        repaint(); // Repaint the component to reflect gap change
+        repaint();
     }
 
     @NotNull
@@ -237,5 +240,21 @@ public class CustomButton extends JButton {
 
     public void setPressedForeground(Color pressedForegroundColor) {
         this.pressedForegroundColor = pressedForegroundColor;
+    }
+
+    public Color getSelectedColor() {
+        return selectedColor;
+    }
+
+    public void setSelectedColor(Color selectedColor) {
+        this.selectedColor = selectedColor;
+    }
+
+    public Color getSelectedForegroundColor() {
+        return selectedForegroundColor;
+    }
+
+    public void setSelectedForegroundColor(Color selectedForegroundColor) {
+        this.selectedForegroundColor = selectedForegroundColor;
     }
 }

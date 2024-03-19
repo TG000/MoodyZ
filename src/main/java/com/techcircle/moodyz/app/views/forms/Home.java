@@ -1,18 +1,17 @@
 package com.techcircle.moodyz.app.views.forms;
 
-import com.techcircle.moodyz.app.views.components.global.RoundedPanel;
+import com.techcircle.moodyz.app.views.components.global.CustomPanel;
 
 /**
  *
  * @author Gica Tran
  */
-public class Home extends RoundedPanel {
+public class Home extends CustomPanel {
 
     /**
      * Creates new form Home
      */
     public Home() {
-        super(20);
         initComponents();
     }
 
@@ -27,6 +26,7 @@ public class Home extends RoundedPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(25, 25, 25));
+        setRadius(20);
 
         jLabel1.setForeground(new java.awt.Color(253, 253, 253));
         jLabel1.setText("Home");

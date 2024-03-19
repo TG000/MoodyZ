@@ -1,18 +1,17 @@
 package com.techcircle.moodyz.app.views.forms;
 
-import com.techcircle.moodyz.app.views.components.global.RoundedPanel;
+import com.techcircle.moodyz.app.views.components.global.CustomPanel;
 
 /**
  *
  * @author Gica Tran
  */
-public class Search extends RoundedPanel {
+public class Search extends CustomPanel {
 
     /**
      * Creates new form Search
      */
     public Search() {
-        super(20);
         initComponents();
     }
 
@@ -23,6 +22,8 @@ public class Search extends RoundedPanel {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setRadius(20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
