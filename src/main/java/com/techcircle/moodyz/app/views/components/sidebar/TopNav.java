@@ -52,24 +52,30 @@ public class TopNav extends RoundedPanel {
 
         btnHome.setBackground(new java.awt.Color(25, 25, 25));
         btnHome.setForeground(new java.awt.Color(128, 128, 128));
-        btnHome.setIcon(new IconBuilder(FontAwesomeSolid.HOME, 22, Color.GRAY).prepareIcon());
+        btnHome.setIcon(new IconBuilder(FontAwesomeSolid.HOME, 22, Color.GRAY).prepareIcon()
+        );
         btnHome.setText("Home");
         btnHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHome.setFont(new java.awt.Font("Proxima Nova Rg", 1, 16)); // NOI18N
         btnHome.setHoverColor(new java.awt.Color(25, 25, 25));
         btnHome.setIconTextGap(15);
         btnHome.setPressedColor(new java.awt.Color(25, 25, 25));
+        btnHome.setRolloverIcon(new IconBuilder(FontAwesomeSolid.HOME, 22, Color.WHITE).prepareIcon()
+        );
         btnHome.setTextAlignment(2);
 
         btnSearch.setBackground(new java.awt.Color(25, 25, 25));
         btnSearch.setForeground(new java.awt.Color(128, 128, 128));
-        btnSearch.setIcon(new IconBuilder(FontAwesomeSolid.SEARCH, 22, Color.GRAY).prepareIcon());
+        btnSearch.setIcon(new IconBuilder(FontAwesomeSolid.SEARCH, 22, Color.GRAY).prepareIcon()
+        );
         btnSearch.setText("Search");
         btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSearch.setFont(new java.awt.Font("Proxima Nova Rg", 1, 16)); // NOI18N
         btnSearch.setHoverColor(new java.awt.Color(25, 25, 25));
         btnSearch.setIconTextGap(15);
         btnSearch.setPressedColor(new java.awt.Color(25, 25, 25));
+        btnSearch.setRolloverIcon(new IconBuilder(FontAwesomeSolid.SEARCH, 22, Color.WHITE).prepareIcon()
+        );
         btnSearch.setTextAlignment(2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

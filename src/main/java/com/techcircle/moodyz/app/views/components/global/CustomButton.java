@@ -5,17 +5,22 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 
 public class CustomButton extends JButton {
     private Color backgroundColor;
     private Color foregroundColor;
     private Color hoverColor;
+    private Color hoverForegroundColor;
     private Color pressedColor;
+    private Color pressedForegroundColor;
     private int radius;
     private int textAlignment;
     private int iconTextGap;
     private Cursor cursor;
+    private Icon rolloverIcon;
 
     public CustomButton() {
         this("");
@@ -40,7 +45,9 @@ public class CustomButton extends JButton {
         backgroundColor = new Color(59, 89, 182);
         foregroundColor = Color.WHITE;
         hoverColor = new Color(46, 134, 193);
+        hoverForegroundColor = Color.WHITE;
         pressedColor = new Color(33, 97, 140);
+        pressedForegroundColor = Color.WHITE;
         radius = 15;
         textAlignment = SwingConstants.CENTER;
         iconTextGap = 4;
@@ -61,18 +68,22 @@ public class CustomButton extends JButton {
 
         // Determine the color based on button state
         Color color = backgroundColor;
+        Color textColor = foregroundColor; // Default text color
+        Icon icon = getIcon();
+        String text = getText();
+
         if (getModel().isPressed()) {
             color = pressedColor;
+            textColor = pressedForegroundColor;
         } else if (getModel().isRollover()) {
             color = hoverColor;
+            textColor = hoverForegroundColor; // Use hoverForegroundColor when hovered
+            icon = getRolloverIcon();
         }
 
         // Fill the button background with the determined color
         g2.setColor(color);
         g2.fill(new RoundRectangle2D.Double(0, 0, width, height, radius, radius));
-
-        Icon icon = getIcon();
-        String text = getText();
 
         // Calculate the available space for content
         int contentWidth = (icon != null ? icon.getIconWidth() + iconTextGap : 0);
@@ -89,13 +100,14 @@ public class CustomButton extends JButton {
         // Draw icon
         if (icon != null) {
             int iconY = (height - icon.getIconHeight()) / 2;
+            g2.setColor(textColor); // Set the color for the icon
             icon.paintIcon(this, g2, contentX, iconY);
             contentX += icon.getIconWidth() + iconTextGap;
         }
 
         // Draw text
         if (text != null && !text.isEmpty()) {
-            g2.setColor(foregroundColor);
+            g2.setColor(textColor); // Use the determined text color
             FontMetrics metrics = g2.getFontMetrics();
             int textWidth = metrics.stringWidth(text);
             int textHeight = metrics.getHeight();
@@ -113,6 +125,15 @@ public class CustomButton extends JButton {
         int width = Math.max(dim.width, getIcon() != null ? getIcon().getIconWidth() : 0);
         int height = Math.max(dim.height, getIcon() != null ? getIcon().getIconHeight() : 0);
         return new Dimension(width + 20, height + 10); // Add padding
+    }
+
+    // Getter and setter for hoverForegroundColor
+    public Color getHoverForegroundColor() {
+        return hoverForegroundColor;
+    }
+
+    public void setHoverForegroundColor(Color hoverForegroundColor) {
+        this.hoverForegroundColor = hoverForegroundColor;
     }
 
     // Method to calculate text width
@@ -197,5 +218,24 @@ public class CustomButton extends JButton {
     public void setCursor(Cursor cursor) {
         super.setCursor(cursor);
         this.cursor = cursor;
+    }
+
+    @Override
+    public Icon getRolloverIcon() {
+        return rolloverIcon;
+    }
+
+    @Override
+    public void setRolloverIcon(Icon rolloverIcon) {
+        super.setRolloverIcon(rolloverIcon);
+        this.rolloverIcon = rolloverIcon;
+    }
+
+    public Color getPressedForegroundColor() {
+        return pressedForegroundColor;
+    }
+
+    public void setPressedForeground(Color pressedForegroundColor) {
+        this.pressedForegroundColor = pressedForegroundColor;
     }
 }

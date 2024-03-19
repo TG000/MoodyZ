@@ -98,7 +98,9 @@ public class MoodyZApplication extends JFrame {
         btnClose.setIcon(new IconBuilder(FontAwesomeSolid.TIMES, 15, Color.WHITE).prepareIcon());
         btnClose.setHoverColor(new java.awt.Color(196, 43, 28));
         btnClose.setPressedColor(new java.awt.Color(148, 19, 32));
+        btnClose.setPressedIcon(new IconBuilder(FontAwesomeSolid.TIMES, 15, Color.WHITE).prepareIcon());
         btnClose.setRadius(0);
+        btnClose.setRolloverIcon(new IconBuilder(FontAwesomeSolid.TIMES, 15, Color.WHITE).prepareIcon());
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCloseActionPerformed(evt);
@@ -110,7 +112,9 @@ public class MoodyZApplication extends JFrame {
         btnMaximize.setIcon(new IconBuilder(FontAwesomeRegular.WINDOW_MAXIMIZE, 15, Color.WHITE).prepareIcon());
         btnMaximize.setHoverColor(new java.awt.Color(63, 63, 63));
         btnMaximize.setPressedColor(new java.awt.Color(51, 51, 51));
+        btnMaximize.setPressedIcon(new IconBuilder(FontAwesomeRegular.WINDOW_MAXIMIZE, 15, Color.WHITE).prepareIcon());
         btnMaximize.setRadius(0);
+        btnMaximize.setRolloverIcon(new IconBuilder(FontAwesomeRegular.WINDOW_MAXIMIZE, 15, Color.WHITE).prepareIcon());
         btnMaximize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMaximizeActionPerformed(evt);
@@ -122,7 +126,9 @@ public class MoodyZApplication extends JFrame {
         btnMinimize.setIcon(new IconBuilder(FontAwesomeRegular.WINDOW_MINIMIZE, 10, Color.WHITE).prepareIcon());
         btnMinimize.setHoverColor(new java.awt.Color(63, 63, 63));
         btnMinimize.setPressedColor(new java.awt.Color(51, 51, 51));
+        btnMinimize.setPressedIcon(new IconBuilder(FontAwesomeRegular.WINDOW_MINIMIZE, 10, Color.WHITE).prepareIcon());
         btnMinimize.setRadius(0);
+        btnMinimize.setRolloverIcon(new IconBuilder(FontAwesomeRegular.WINDOW_MINIMIZE, 10, Color.WHITE).prepareIcon());
         btnMinimize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMinimizeActionPerformed(evt);
@@ -133,7 +139,9 @@ public class MoodyZApplication extends JFrame {
         btnMore.setIcon(new IconBuilder(FontAwesomeSolid.ELLIPSIS_H, 20, Color.WHITE).prepareIcon());
         btnMore.setHoverColor(new java.awt.Color(0, 0, 0));
         btnMore.setPressedColor(new java.awt.Color(0, 0, 0));
+        btnMore.setPressedIcon(new IconBuilder(FontAwesomeSolid.ELLIPSIS_H, 20, Color.WHITE).prepareIcon());
         btnMore.setRadius(0);
+        btnMore.setRolloverIcon(new IconBuilder(FontAwesomeSolid.ELLIPSIS_H, 20, Color.WHITE).prepareIcon());
 
         javax.swing.GroupLayout titleBarLayout = new javax.swing.GroupLayout(titleBar);
         titleBar.setLayout(titleBarLayout);
@@ -233,12 +241,16 @@ public class MoodyZApplication extends JFrame {
         if (maximize) {
             setBounds(normalBounds);
             btnMaximize.setIcon(new IconBuilder(FontAwesomeRegular.WINDOW_MAXIMIZE, 15, Color.WHITE).prepareIcon());
+            btnMaximize.setRolloverIcon(new IconBuilder(FontAwesomeRegular.WINDOW_MAXIMIZE, 15, Color.WHITE).prepareIcon());
+            btnMaximize.setPressedIcon(new IconBuilder(FontAwesomeRegular.WINDOW_MAXIMIZE, 15, Color.WHITE).prepareIcon());
             maximize = false;
         }
         else {
             normalBounds = getBounds();
             setExtendedState(JFrame.MAXIMIZED_BOTH);
             btnMaximize.setIcon(new IconBuilder(FontAwesomeRegular.WINDOW_RESTORE, 15, Color.WHITE).prepareIcon());
+            btnMaximize.setRolloverIcon(new IconBuilder(FontAwesomeRegular.WINDOW_RESTORE, 15, Color.WHITE).prepareIcon());
+            btnMaximize.setPressedIcon(new IconBuilder(FontAwesomeRegular.WINDOW_RESTORE, 15, Color.WHITE).prepareIcon());
             maximize = true;
         }
     }
