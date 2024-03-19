@@ -1,19 +1,23 @@
 package com.techcircle.moodyz.app.views.forms;
 
-import com.techcircle.moodyz.app.views.components.global.RoundedPanel;
+import com.techcircle.moodyz.app.views.components.global.CustomPanel;
 
 /**
  *
  * @author Gica Tran
  */
-public class Search extends RoundedPanel {
+public class Search extends CustomPanel {
 
     /**
      * Creates new form Search
      */
     public Search() {
-        super(20);
         initComponents();
+        init();
+    }
+
+    private void init() {
+        this.setRadius(20);
     }
 
     /**

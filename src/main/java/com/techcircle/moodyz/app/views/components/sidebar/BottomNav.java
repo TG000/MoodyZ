@@ -69,6 +69,7 @@ public class BottomNav extends CustomPanel {
         btnPlaylists.setText("Playlists");
         btnPlaylists.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPlaylists.setFont(new java.awt.Font("Proxima Nova Rg", 0, 14)); // NOI18N
+        btnPlaylists.setHoverColor(new java.awt.Color(42, 42, 42));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
