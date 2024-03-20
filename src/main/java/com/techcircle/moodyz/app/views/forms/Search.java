@@ -28,34 +28,93 @@ public class Search extends CustomPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        customPanel1 = new com.techcircle.moodyz.app.views.components.global.CustomPanel();
+        customPanel2 = new com.techcircle.moodyz.app.views.components.global.CustomPanel();
         jLabel1 = new javax.swing.JLabel();
+        Titles = new javax.swing.JLabel();
+        genreCard1 = new com.techcircle.moodyz.app.views.components.global.GenreCard();
+
+        customPanel1.setBackground(new java.awt.Color(204, 0, 204));
+        customPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        customPanel1.setRadius(20);
+
+        customPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        customPanel2.setRadius(20);
+
+        javax.swing.GroupLayout customPanel2Layout = new javax.swing.GroupLayout(customPanel2);
+        customPanel2.setLayout(customPanel2Layout);
+        customPanel2Layout.setHorizontalGroup(
+            customPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 121, Short.MAX_VALUE)
+        );
+        customPanel2Layout.setVerticalGroup(
+            customPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 117, Short.MAX_VALUE)
+        );
+
+        jLabel1.setFont(new java.awt.Font("Proxima Nova Rg", 1, 28)); // NOI18N
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout customPanel1Layout = new javax.swing.GroupLayout(customPanel1);
+        customPanel1.setLayout(customPanel1Layout);
+        customPanel1Layout.setHorizontalGroup(
+            customPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(customPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(customPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        customPanel1Layout.setVerticalGroup(
+            customPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(customPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         setBackground(new java.awt.Color(30, 30, 30));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("jLabel1");
+        Titles.setFont(new java.awt.Font("Proxima Nova Rg", 1, 30)); // NOI18N
+        Titles.setForeground(new java.awt.Color(255, 255, 255));
+        Titles.setText("All Browse");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(508, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(Titles, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(genreCard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(495, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(538, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(Titles, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(genreCard1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(335, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Titles;
+    private com.techcircle.moodyz.app.views.components.global.CustomPanel customPanel1;
+    private com.techcircle.moodyz.app.views.components.global.CustomPanel customPanel2;
+    private com.techcircle.moodyz.app.views.components.global.GenreCard genreCard1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
