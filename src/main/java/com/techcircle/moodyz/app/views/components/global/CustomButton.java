@@ -22,7 +22,8 @@ public class CustomButton extends JButton {
     private Icon rolloverIcon;
 
     public CustomButton() {
-        this("");
+        super("");
+        initDefaults();
     }
 
     public CustomButton(String text) {

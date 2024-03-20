@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-class CustomMenuItem extends JMenuItem {
+public class CustomMenuItem extends JMenuItem {
     private Color hoverColor;
     private Color normalColor;
 

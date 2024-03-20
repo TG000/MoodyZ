@@ -78,7 +78,7 @@ public class Search extends CustomPanel {
                 .addContainerGap())
         );
 
-        setBackground(new java.awt.Color(30, 30, 30));
+        setBackground(new java.awt.Color(25, 25, 25));
 
         Titles.setFont(new java.awt.Font("Proxima Nova Rg", 1, 30)); // NOI18N
         Titles.setForeground(new java.awt.Color(255, 255, 255));
