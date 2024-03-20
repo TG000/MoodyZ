@@ -27,6 +27,7 @@ public class MoodyZApplication extends JFrame {
     private Rectangle normalBounds;
 
     private boolean maximize;
+    private boolean morePopup;
     private int pX;
     private int pY;
 
@@ -59,6 +60,14 @@ public class MoodyZApplication extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupMore = new javax.swing.JPopupMenu();
+        menuFile = new javax.swing.JMenu();
+        itemNew = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        itemLogout = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        itemExit = new javax.swing.JMenuItem();
+        menuEdit = new javax.swing.JMenu();
         border = new javax.swing.JPanel();
         background = new javax.swing.JPanel();
         titleBar = new javax.swing.JPanel();
@@ -69,6 +78,33 @@ public class MoodyZApplication extends JFrame {
         body = new javax.swing.JLayeredPane();
         mainLayout = new com.techcircle.moodyz.app.views.components.layouts.MainLayout();
         inPlayingSong = new InPlayingSong();
+
+        menuFile.setText("File");
+
+        itemNew.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemNew.setText("New Playlist");
+        itemNew.setContentAreaFilled(false);
+        itemNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemNewActionPerformed(evt);
+            }
+        });
+        menuFile.add(itemNew);
+        menuFile.add(jSeparator1);
+
+        itemLogout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemLogout.setText("Log Out");
+        menuFile.add(itemLogout);
+        menuFile.add(jSeparator2);
+
+        itemExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemExit.setText("Exit");
+        menuFile.add(itemExit);
+
+        popupMore.add(menuFile);
+
+        menuEdit.setText("Edit");
+        popupMore.add(menuEdit);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -142,6 +178,11 @@ public class MoodyZApplication extends JFrame {
         btnMore.setPressedIcon(new IconBuilder(FontAwesomeSolid.ELLIPSIS_H, 20, Color.WHITE).prepareIcon());
         btnMore.setRadius(0);
         btnMore.setRolloverIcon(new IconBuilder(FontAwesomeSolid.ELLIPSIS_H, 20, Color.WHITE).prepareIcon());
+        btnMore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoreActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout titleBarLayout = new javax.swing.GroupLayout(titleBar);
         titleBar.setLayout(titleBarLayout);
@@ -233,6 +274,14 @@ public class MoodyZApplication extends JFrame {
         close();
     }//GEN-LAST:event_btnCloseActionPerformed
 
+    private void btnMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoreActionPerformed
+        toggleSettings();
+    }//GEN-LAST:event_btnMoreActionPerformed
+
+    private void itemNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemNewActionPerformed
+
     private void close() {
         animation.fadeOut(this, () -> System.exit(0));
     }
@@ -257,6 +306,17 @@ public class MoodyZApplication extends JFrame {
 
     private void minimize() {
         animation.fadeOut(this, () -> setState(JFrame.ICONIFIED));
+    }
+
+    private void toggleSettings() {
+        if (!morePopup) {
+            morePopup = true;
+            popupMore.show(btnMore, 0, btnMore.getHeight());
+        }
+        else {
+            morePopup = false;
+            popupMore.setVisible(false);
+        }
     }
 
     /**
@@ -297,7 +357,15 @@ public class MoodyZApplication extends JFrame {
     private com.techcircle.moodyz.app.views.components.global.CustomButton btnMinimize;
     private com.techcircle.moodyz.app.views.components.global.CustomButton btnMore;
     private com.techcircle.moodyz.app.views.components.InPlayingSong inPlayingSong;
+    private javax.swing.JMenuItem itemExit;
+    private javax.swing.JMenuItem itemLogout;
+    private javax.swing.JMenuItem itemNew;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private com.techcircle.moodyz.app.views.components.layouts.MainLayout mainLayout;
+    private javax.swing.JMenu menuEdit;
+    private javax.swing.JMenu menuFile;
+    private javax.swing.JPopupMenu popupMore;
     private javax.swing.JPanel titleBar;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@ import com.techcircle.moodyz.utils.IconBuilder;
 import net.miginfocom.swing.MigLayout;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -65,6 +66,11 @@ public class BottomNav extends CustomPanel {
         btnAdd.setRadius(30);
         btnAdd.setRolloverIcon(new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.WHITE).prepareIcon()
         );
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnPlaylists.setBackground(new java.awt.Color(36, 36, 36));
         btnPlaylists.setText("Playlists");
@@ -104,6 +110,13 @@ public class BottomNav extends CustomPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        addPlaylist();
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void addPlaylist() {
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.techcircle.moodyz.app.views.components.global.CustomButton btnAdd;
