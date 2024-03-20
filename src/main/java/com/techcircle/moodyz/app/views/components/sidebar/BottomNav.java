@@ -21,7 +21,7 @@ public class BottomNav extends CustomPanel {
     }
 
     private void init() {
-        this.setLayout(new MigLayout("", "25[]push[][]25", "15[]10[]10[]15"));
+        this.setLayout(new MigLayout("", "25[]push[][]25", "15[]15[]15[]15"));
 
         this.remove(txtDisplay);
         this.remove(btnAdd);
@@ -30,8 +30,6 @@ public class BottomNav extends CustomPanel {
         this.add(txtDisplay, "h ::30");
         this.add(btnAdd, "skip, wrap, w ::30, h ::30");
         this.add(btnPlaylists, "wrap");
-
-        txtDisplay.setIcon(new IconBuilder(FontAwesomeSolid.BOOKMARK, 22, Color.GRAY).prepareIcon());
     }
 
     /**
@@ -51,12 +49,14 @@ public class BottomNav extends CustomPanel {
 
         txtDisplay.setFont(new java.awt.Font("Proxima Nova Rg", 1, 16)); // NOI18N
         txtDisplay.setForeground(new java.awt.Color(128, 128, 128));
+        txtDisplay.setIcon(new IconBuilder(FontAwesomeSolid.BOOKMARK, 22, Color.GRAY).prepareIcon());
         txtDisplay.setText("Your Library");
         txtDisplay.setIconTextGap(20);
 
         btnAdd.setBackground(new java.awt.Color(25, 25, 25));
         btnAdd.setIcon(new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.GRAY).prepareIcon()
         );
+        btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAdd.setHoverColor(new java.awt.Color(32, 32, 32));
         btnAdd.setPressedColor(new java.awt.Color(5, 5, 5));
         btnAdd.setPressedForeground(java.awt.Color.white);
@@ -66,10 +66,16 @@ public class BottomNav extends CustomPanel {
         btnAdd.setRolloverIcon(new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.WHITE).prepareIcon()
         );
 
+        btnPlaylists.setBackground(new java.awt.Color(36, 36, 36));
         btnPlaylists.setText("Playlists");
         btnPlaylists.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPlaylists.setFont(new java.awt.Font("Proxima Nova Rg", 0, 14)); // NOI18N
+        btnPlaylists.setFont(new java.awt.Font("Proxima Nova Lt", 1, 14)); // NOI18N
         btnPlaylists.setHoverColor(new java.awt.Color(42, 42, 42));
+        btnPlaylists.setMaximumSize(new java.awt.Dimension(75, 35));
+        btnPlaylists.setMinimumSize(new java.awt.Dimension(75, 35));
+        btnPlaylists.setPreferredSize(new java.awt.Dimension(75, 35));
+        btnPlaylists.setPressedColor(new java.awt.Color(32, 32, 32));
+        btnPlaylists.setRadius(35);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -93,8 +99,8 @@ public class BottomNav extends CustomPanel {
                     .addComponent(txtDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addComponent(btnPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap(223, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

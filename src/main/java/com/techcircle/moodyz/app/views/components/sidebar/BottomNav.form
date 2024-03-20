@@ -45,8 +45,8 @@
                   <Component id="btnAdd" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnPlaylists" max="32767" attributes="0"/>
-              <EmptySpace pref="226" max="32767" attributes="0"/>
+              <Component id="btnPlaylists" pref="38" max="32767" attributes="0"/>
+              <EmptySpace pref="223" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,6 +60,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="80" green="80" red="80" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new IconBuilder(FontAwesomeSolid.BOOKMARK, 22, Color.GRAY).prepareIcon()" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Your Library"/>
         <Property name="iconTextGap" type="int" value="20"/>
       </Properties>
@@ -71,6 +74,9 @@
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.GRAY).prepareIcon()&#xd;&#xa;" type="code"/>
+        </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
         </Property>
         <Property name="hoverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="20" green="20" red="20" type="rgb"/>
@@ -92,16 +98,32 @@
     </Component>
     <Component class="com.techcircle.moodyz.app.views.components.global.CustomButton" name="btnPlaylists">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="24" green="24" red="24" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Playlists"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Proxima Nova Rg" size="14" style="0"/>
+          <Font name="Proxima Nova Lt" size="14" style="1"/>
         </Property>
         <Property name="hoverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="2a" green="2a" red="2a" type="rgb"/>
         </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[75, 35]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[75, 35]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[75, 35]"/>
+        </Property>
+        <Property name="pressedColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="20" green="20" red="20" type="rgb"/>
+        </Property>
+        <Property name="radius" type="int" value="35"/>
       </Properties>
     </Component>
   </SubComponents>
