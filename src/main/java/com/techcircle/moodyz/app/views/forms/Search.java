@@ -1,5 +1,6 @@
 package com.techcircle.moodyz.app.views.forms;
 
+import com.techcircle.moodyz.app.views.components.GenreCard;
 import com.techcircle.moodyz.app.views.components.global.CustomPanel;
 
 /**
@@ -32,7 +33,7 @@ public class Search extends CustomPanel {
         customPanel2 = new com.techcircle.moodyz.app.views.components.global.CustomPanel();
         jLabel1 = new javax.swing.JLabel();
         Titles = new javax.swing.JLabel();
-        genreCard1 = new com.techcircle.moodyz.app.views.components.global.GenreCard();
+        genreCard1 = new GenreCard();
 
         customPanel1.setBackground(new java.awt.Color(204, 0, 204));
         customPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,7 +115,7 @@ public class Search extends CustomPanel {
     private javax.swing.JLabel Titles;
     private com.techcircle.moodyz.app.views.components.global.CustomPanel customPanel1;
     private com.techcircle.moodyz.app.views.components.global.CustomPanel customPanel2;
-    private com.techcircle.moodyz.app.views.components.global.GenreCard genreCard1;
+    private GenreCard genreCard1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

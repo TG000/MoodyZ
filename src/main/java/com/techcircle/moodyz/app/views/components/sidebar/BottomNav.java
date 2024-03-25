@@ -27,10 +27,12 @@ public class BottomNav extends CustomPanel {
         this.remove(txtDisplay);
         this.remove(btnAdd);
         this.remove(btnPlaylists);
+        this.remove(btnSearch);
 
-        this.add(txtDisplay, "h ::30");
-        this.add(btnAdd, "skip, wrap, w ::30, h ::30");
+        this.add(txtDisplay, "h 30px!");
+        this.add(btnAdd, "skip, wrap, w 30px!, h 30px!");
         this.add(btnPlaylists, "wrap");
+        this.add(btnSearch, "w 30px!, h 30px!");
     }
 
     /**
@@ -44,6 +46,7 @@ public class BottomNav extends CustomPanel {
         txtDisplay = new javax.swing.JLabel();
         btnAdd = new com.techcircle.moodyz.app.views.components.global.CustomButton();
         btnPlaylists = new com.techcircle.moodyz.app.views.components.global.CustomButton();
+        btnSearch = new com.techcircle.moodyz.app.views.components.global.CustomButton();
 
         setBackground(new java.awt.Color(25, 25, 25));
         setRadius(20);
@@ -55,16 +58,16 @@ public class BottomNav extends CustomPanel {
         txtDisplay.setIconTextGap(20);
 
         btnAdd.setBackground(new java.awt.Color(25, 25, 25));
-        btnAdd.setIcon(new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.GRAY).prepareIcon()
+        btnAdd.setIcon(new IconBuilder(FontAwesomeSolid.PLUS, 16, Color.GRAY).prepareIcon()
         );
         btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAdd.setHoverColor(new java.awt.Color(32, 32, 32));
         btnAdd.setPressedColor(new java.awt.Color(5, 5, 5));
         btnAdd.setPressedForeground(java.awt.Color.white);
-        btnAdd.setPressedIcon(new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.DARK_GRAY).prepareIcon()
+        btnAdd.setPressedIcon(new IconBuilder(FontAwesomeSolid.PLUS, 16, Color.DARK_GRAY).prepareIcon()
         );
         btnAdd.setRadius(30);
-        btnAdd.setRolloverIcon(new IconBuilder(FontAwesomeSolid.PLUS, 14, Color.WHITE).prepareIcon()
+        btnAdd.setRolloverIcon(new IconBuilder(FontAwesomeSolid.PLUS, 16, Color.WHITE).prepareIcon()
         );
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +86,18 @@ public class BottomNav extends CustomPanel {
         btnPlaylists.setPressedColor(new java.awt.Color(32, 32, 32));
         btnPlaylists.setRadius(35);
 
+        btnSearch.setBackground(new java.awt.Color(25, 25, 25));
+        btnSearch.setIcon(new IconBuilder(FontAwesomeSolid.SEARCH, 16, Color.GRAY).prepareIcon()
+        );
+        btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSearch.setHoverColor(new java.awt.Color(32, 32, 32));
+        btnSearch.setPressedColor(new java.awt.Color(5, 5, 5));
+        btnSearch.setPressedIcon(new IconBuilder(FontAwesomeSolid.SEARCH, 16, Color.DARK_GRAY).prepareIcon()
+        );
+        btnSearch.setRadius(30);
+        btnSearch.setRolloverIcon(new IconBuilder(FontAwesomeSolid.SEARCH, 16, Color.WHITE).prepareIcon()
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,7 +109,10 @@ public class BottomNav extends CustomPanel {
                         .addComponent(txtDisplay)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -105,8 +123,10 @@ public class BottomNav extends CustomPanel {
                     .addComponent(txtDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addComponent(btnPlaylists, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -121,6 +141,7 @@ public class BottomNav extends CustomPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.techcircle.moodyz.app.views.components.global.CustomButton btnAdd;
     private com.techcircle.moodyz.app.views.components.global.CustomButton btnPlaylists;
+    private com.techcircle.moodyz.app.views.components.global.CustomButton btnSearch;
     private javax.swing.JLabel txtDisplay;
     // End of variables declaration//GEN-END:variables
 }

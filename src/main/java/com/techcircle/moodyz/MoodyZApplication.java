@@ -60,14 +60,31 @@ public class MoodyZApplication extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        popupMore = new javax.swing.JPopupMenu();
-        menuFile = new javax.swing.JMenu();
-        itemNew = new javax.swing.JMenuItem();
+        popupMore = new com.techcircle.moodyz.app.views.components.global.CustomPopupMenu();
+        menuFile = new com.techcircle.moodyz.app.views.components.global.CustomMenu();
+        itemNew = new com.techcircle.moodyz.app.views.components.global.CustomMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        itemLogout = new javax.swing.JMenuItem();
+        itemLogout = new com.techcircle.moodyz.app.views.components.global.CustomMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        itemExit = new javax.swing.JMenuItem();
-        menuEdit = new javax.swing.JMenu();
+        itemLogout1 = new com.techcircle.moodyz.app.views.components.global.CustomMenuItem();
+        menuEdit = new com.techcircle.moodyz.app.views.components.global.CustomMenu();
+        itemNew5 = new com.techcircle.moodyz.app.views.components.global.CustomMenuItem();
+        jSeparator11 = new javax.swing.JPopupMenu.Separator();
+        itemLogout5 = new javax.swing.JMenuItem();
+        jSeparator12 = new javax.swing.JPopupMenu.Separator();
+        itemExit5 = new javax.swing.JMenuItem();
+        menuPlayback = new com.techcircle.moodyz.app.views.components.global.CustomMenu();
+        itemNew6 = new com.techcircle.moodyz.app.views.components.global.CustomMenuItem();
+        jSeparator13 = new javax.swing.JPopupMenu.Separator();
+        itemLogout6 = new javax.swing.JMenuItem();
+        jSeparator14 = new javax.swing.JPopupMenu.Separator();
+        itemExit6 = new javax.swing.JMenuItem();
+        menuHelp = new com.techcircle.moodyz.app.views.components.global.CustomMenu();
+        itemNew7 = new com.techcircle.moodyz.app.views.components.global.CustomMenuItem();
+        jSeparator15 = new javax.swing.JPopupMenu.Separator();
+        itemLogout7 = new javax.swing.JMenuItem();
+        jSeparator16 = new javax.swing.JPopupMenu.Separator();
+        itemExit7 = new javax.swing.JMenuItem();
         border = new javax.swing.JPanel();
         background = new javax.swing.JPanel();
         titleBar = new javax.swing.JPanel();
@@ -79,32 +96,102 @@ public class MoodyZApplication extends JFrame {
         mainLayout = new com.techcircle.moodyz.app.views.components.layouts.MainLayout();
         inPlayingSong = new InPlayingSong();
 
+        popupMore.setBackground(new java.awt.Color(41, 42, 45));
+        popupMore.setForeground(new java.awt.Color(41, 42, 45));
+        popupMore.setBorderColor(new java.awt.Color(60, 64, 67));
+
         menuFile.setText("File");
+        menuFile.setHoverColor(new java.awt.Color(63, 64, 66));
+        menuFile.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        menuFile.setTextColor(new java.awt.Color(255, 255, 255));
 
         itemNew.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itemNew.setText("New Playlist");
-        itemNew.setContentAreaFilled(false);
-        itemNew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemNewActionPerformed(evt);
-            }
-        });
+        itemNew.setHoverColor(new java.awt.Color(63, 64, 66));
+        itemNew.setTextColor(new java.awt.Color(255, 255, 255));
         menuFile.add(itemNew);
         menuFile.add(jSeparator1);
 
         itemLogout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itemLogout.setText("Log Out");
+        itemLogout.setHoverColor(new java.awt.Color(63, 64, 66));
+        itemLogout.setTextColor(new java.awt.Color(255, 255, 255));
         menuFile.add(itemLogout);
         menuFile.add(jSeparator2);
 
-        itemExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itemExit.setText("Exit");
-        menuFile.add(itemExit);
+        itemLogout1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemLogout1.setText("Exit");
+        itemLogout1.setHoverColor(new java.awt.Color(63, 64, 66));
+        itemLogout1.setTextColor(new java.awt.Color(255, 255, 255));
+        menuFile.add(itemLogout1);
 
         popupMore.add(menuFile);
 
         menuEdit.setText("Edit");
+        menuEdit.setHoverColor(new java.awt.Color(63, 64, 66));
+        menuEdit.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        menuEdit.setTextColor(new java.awt.Color(255, 255, 255));
+
+        itemNew5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemNew5.setText("New Playlist");
+        itemNew5.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        menuEdit.add(itemNew5);
+        menuEdit.add(jSeparator11);
+
+        itemLogout5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemLogout5.setText("Log Out");
+        menuEdit.add(itemLogout5);
+        menuEdit.add(jSeparator12);
+
+        itemExit5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemExit5.setText("Exit");
+        menuEdit.add(itemExit5);
+
         popupMore.add(menuEdit);
+
+        menuPlayback.setText("Playback");
+        menuPlayback.setHoverColor(new java.awt.Color(63, 64, 66));
+        menuPlayback.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        menuPlayback.setTextColor(new java.awt.Color(255, 255, 255));
+
+        itemNew6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemNew6.setText("New Playlist");
+        itemNew6.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        menuPlayback.add(itemNew6);
+        menuPlayback.add(jSeparator13);
+
+        itemLogout6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemLogout6.setText("Log Out");
+        menuPlayback.add(itemLogout6);
+        menuPlayback.add(jSeparator14);
+
+        itemExit6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemExit6.setText("Exit");
+        menuPlayback.add(itemExit6);
+
+        popupMore.add(menuPlayback);
+
+        menuHelp.setText("Help");
+        menuHelp.setHoverColor(new java.awt.Color(63, 64, 66));
+        menuHelp.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        menuHelp.setTextColor(new java.awt.Color(255, 255, 255));
+
+        itemNew7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemNew7.setText("New Playlist");
+        itemNew7.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        menuHelp.add(itemNew7);
+        menuHelp.add(jSeparator15);
+
+        itemLogout7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemLogout7.setText("Log Out");
+        menuHelp.add(itemLogout7);
+        menuHelp.add(jSeparator16);
+
+        itemExit7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itemExit7.setText("Exit");
+        menuHelp.add(itemExit7);
+
+        popupMore.add(menuHelp);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -278,10 +365,6 @@ public class MoodyZApplication extends JFrame {
         toggleSettings();
     }//GEN-LAST:event_btnMoreActionPerformed
 
-    private void itemNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNewActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemNewActionPerformed
-
     private void close() {
         animation.fadeOut(this, () -> System.exit(0));
     }
@@ -312,6 +395,7 @@ public class MoodyZApplication extends JFrame {
         if (!morePopup) {
             morePopup = true;
             popupMore.show(btnMore, 0, btnMore.getHeight());
+            popupMore.setVisible(true);
         }
         else {
             morePopup = false;
@@ -357,15 +441,32 @@ public class MoodyZApplication extends JFrame {
     private com.techcircle.moodyz.app.views.components.global.CustomButton btnMinimize;
     private com.techcircle.moodyz.app.views.components.global.CustomButton btnMore;
     private com.techcircle.moodyz.app.views.components.InPlayingSong inPlayingSong;
-    private javax.swing.JMenuItem itemExit;
-    private javax.swing.JMenuItem itemLogout;
-    private javax.swing.JMenuItem itemNew;
+    private javax.swing.JMenuItem itemExit5;
+    private javax.swing.JMenuItem itemExit6;
+    private javax.swing.JMenuItem itemExit7;
+    private com.techcircle.moodyz.app.views.components.global.CustomMenuItem itemLogout;
+    private com.techcircle.moodyz.app.views.components.global.CustomMenuItem itemLogout1;
+    private javax.swing.JMenuItem itemLogout5;
+    private javax.swing.JMenuItem itemLogout6;
+    private javax.swing.JMenuItem itemLogout7;
+    private com.techcircle.moodyz.app.views.components.global.CustomMenuItem itemNew;
+    private com.techcircle.moodyz.app.views.components.global.CustomMenuItem itemNew5;
+    private com.techcircle.moodyz.app.views.components.global.CustomMenuItem itemNew6;
+    private com.techcircle.moodyz.app.views.components.global.CustomMenuItem itemNew7;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator11;
+    private javax.swing.JPopupMenu.Separator jSeparator12;
+    private javax.swing.JPopupMenu.Separator jSeparator13;
+    private javax.swing.JPopupMenu.Separator jSeparator14;
+    private javax.swing.JPopupMenu.Separator jSeparator15;
+    private javax.swing.JPopupMenu.Separator jSeparator16;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private com.techcircle.moodyz.app.views.components.layouts.MainLayout mainLayout;
-    private javax.swing.JMenu menuEdit;
-    private javax.swing.JMenu menuFile;
-    private javax.swing.JPopupMenu popupMore;
+    private com.techcircle.moodyz.app.views.components.global.CustomMenu menuEdit;
+    private com.techcircle.moodyz.app.views.components.global.CustomMenu menuFile;
+    private com.techcircle.moodyz.app.views.components.global.CustomMenu menuHelp;
+    private com.techcircle.moodyz.app.views.components.global.CustomMenu menuPlayback;
+    private com.techcircle.moodyz.app.views.components.global.CustomPopupMenu popupMore;
     private javax.swing.JPanel titleBar;
     // End of variables declaration//GEN-END:variables
 }

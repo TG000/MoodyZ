@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.techcircle.moodyz.app.views.components.global;
+package com.techcircle.moodyz.app.views.components;
+
+import com.techcircle.moodyz.app.views.components.global.CustomPanel;
 
 /**
  *
